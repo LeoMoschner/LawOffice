@@ -9,7 +9,7 @@ public class Case {
     // defendant;           add defendant table to DB?
     // court
     // plaintiffies;
-    private List<JuryMember> juryMembers;           // jury members ??????;
+    private List<JuryMember> juryMembers;
     private List <CaseDocument> caseDocuments;
 
     public long getId() {

@@ -6,7 +6,7 @@ public class Payment {
     private long id;
     private int amount;
     private DateUtils date;
-    private Receipts receipt;
+    private Receipt receipt;
     private Client client;
     private Employee employee;
 
@@ -44,11 +44,11 @@ public class Payment {
         return null;
     }
 
-    public Receipts getReceipt() {
+    public Receipt getReceipt() {
         return receipt;
     }
 
-    public void setReceipt(Receipts receipt) {
+    public void setReceipt(Receipt receipt) {
         this.receipt = receipt;
     }
 

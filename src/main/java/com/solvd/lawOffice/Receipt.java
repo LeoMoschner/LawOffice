@@ -2,15 +2,16 @@ package com.solvd.lawOffice;
 
 import org.apache.commons.lang3.time.DateUtils;
 
-public class Receipts {
+import java.util.Date;
+
+public class Receipt {
 
     private long id;
     private String from;
     private String to;
     private int amount;
-    private DateUtils date;
-    private String concept;             // dont rly know how to call it in english
-                                        // makes reference to the products or services that were payed.
+    private Date date;
+
     public long getId() {
         return id;
     }
@@ -43,20 +44,19 @@ public class Receipts {
         this.amount = amount;
     }
 
-    public DateUtils getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(DateUtils date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public String getConcept() {
-        return concept;
-    }
+    @Override
+    public String toString() {
 
-    public void setConcept(String concept) {
-        this.concept = concept;
+        return ("Receipt: \n\tId: " + id + "\n\tFrom: " + from
+                + "\n\tTo: " + to + "\n\tAmount: $" + amount + "\n\tDate: " + date);
     }
 
 }

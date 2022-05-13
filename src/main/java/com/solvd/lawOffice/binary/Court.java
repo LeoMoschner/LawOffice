@@ -1,10 +1,13 @@
-package com.solvd.lawOffice;
+package com.solvd.lawOffice.binary;
 
-public class City {
+
+import com.solvd.lawOffice.binary.Address;
+
+public class Court {
 
     private long id;
     private String name;
-    private Country country;
+    private Address address;
 
     public long getId() {
         return id;
@@ -22,11 +25,11 @@ public class City {
         this.name = name;
     }
 
-    public Country getCountry() {
-        return country;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setCountry(Country country) {
-        this.country = country;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

@@ -1,8 +1,8 @@
-package com.solvd.lawOffice;
+package com.solvd.lawOffice.binary;
 
 public class Lawyer extends Employee {
 
-    private License License;
+    private com.solvd.lawOffice.binary.License License;
 
     public License getLicense() {
         return License;

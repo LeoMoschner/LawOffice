@@ -1,5 +1,7 @@
-package com.solvd.lawOffice;
+package com.solvd.lawOffice.binary;
 
+
+import com.solvd.lawOffice.binary.Address;
 
 public abstract class Person {
 

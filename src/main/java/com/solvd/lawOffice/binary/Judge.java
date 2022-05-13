@@ -1,4 +1,4 @@
-package com.solvd.lawOffice;
+package com.solvd.lawOffice.binary;
 
 
 import java.util.List;

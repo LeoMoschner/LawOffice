@@ -1,5 +1,6 @@
 package com.solvd.lawOffice;
 
+import com.solvd.lawOffice.binary.Receipt;
 import com.solvd.lawOffice.dao.jbdcMySqlImpl.ReceiptDao;
 
 import java.io.IOException;

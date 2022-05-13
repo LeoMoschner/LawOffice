@@ -1,11 +1,8 @@
-package com.solvd.lawOffice;
+package com.solvd.lawOffice.binary;
 
-
-public class Court {
-
+public class Country {
     private long id;
     private String name;
-    private Address address;
 
     public long getId() {
         return id;
@@ -21,13 +18,5 @@ public class Court {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 }

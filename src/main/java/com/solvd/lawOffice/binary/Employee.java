@@ -1,6 +1,6 @@
-package com.solvd.lawOffice;
+package com.solvd.lawOffice.binary;
 
-public class Employee extends Person{
+public class Employee extends Person {
 
     private long id;
     private long salary;

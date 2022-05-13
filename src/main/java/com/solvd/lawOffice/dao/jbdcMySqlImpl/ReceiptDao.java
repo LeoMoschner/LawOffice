@@ -1,6 +1,6 @@
 package com.solvd.lawOffice.dao.jbdcMySqlImpl;
 
-import com.solvd.lawOffice.Receipt;
+import com.solvd.lawOffice.binary.Receipt;
 import com.solvd.lawOffice.dao.IReceiptDao;
 import com.solvd.lawOffice.services.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
@@ -8,7 +8,6 @@ import org.apache.logging.log4j.core.Logger;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.Date;
 
 
 public class ReceiptDao implements IReceiptDao {

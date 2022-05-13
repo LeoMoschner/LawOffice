@@ -1,5 +1,6 @@
-package com.solvd.lawOffice;
+package com.solvd.lawOffice.binary;
 
+import com.solvd.lawOffice.binary.Employee;
 import org.apache.commons.lang3.time.DateUtils;
 
 public class License {

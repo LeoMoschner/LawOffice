@@ -1,0 +1,10 @@
+DELETE FROM case_docs where id_CaseDocs = 30;
+DELETE FROM case_docs where Cases_id_Cases = 10;
+DELETE FROM cities where id_Cities = 32;
+DELETE FROM cities where Country_id_Country = 10;
+DELETE FROM jury_members where Cases_id_Cases = 10;
+DELETE FROM jury_members where Address_id_Address = 68;
+DELETE FROM jury_members where idJury_Members = 16;
+DELETE FROM address WHERE id_Address = 68;
+DELETE FROM address WHERE postal_code = 1235;
+DELETE FROM address WHERE Cities_id_Cities = 10;

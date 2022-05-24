@@ -1,24 +1,21 @@
 package com.solvd.lawOffice.dao;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.sql.SQLException;
 
 public interface IBaseDao<T> {
 
-    default T getById(long id) throws IOException, SQLException {
+    default T getById(long id)  {
         return null;
     }
 
-    default void save (T entity) throws SQLException, IOException {
+    default void save (T entity) {
 
     }
 
-    default void update (T entity) throws SQLException, IOException {
+    default void update (T entity) {
 
     }
 
-    default void deleteById (long id) throws SQLException, IOException {
+    default void deleteById (long id) {
 
     }
 }

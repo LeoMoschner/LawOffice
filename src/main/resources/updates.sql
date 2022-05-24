@@ -1,0 +1,10 @@
+UPDATE country SET name = 'Belarus' WHERE id_Country = 4;
+UPDATE cities SET name = 'Stalingrad' where id_Cities = 8;
+UPDATE employees SET email = 'carlossaul@hotmail.com' where id_Employees = 3;
+UPDATE employees SET email = 'leclerc@gmail.com' where id_Employees = 4;
+UPDATE employees SET email = 'kimwex@gmail.com' where id_Employees = 5;
+UPDATE employees SET email = 'matrix@gmail.com' where id_Employees = 6;
+UPDATE employees SET email = 'juanito@gmail.com' where id_Employees = 7;
+UPDATE employees SET email = 'johnsmith@gmail.com' where id_Employees = 8;
+UPDATE employees SET email = 'gnraxl@hotmail.com' where id_Employees = 9;
+UPDATE employees SET email = 'sl4sh@gmail.com' where id_Employees = 10;

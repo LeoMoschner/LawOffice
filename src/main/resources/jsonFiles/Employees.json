@@ -1,0 +1,23 @@
+[
+  {
+    "id": 30,
+    "firstName": "Drake",
+    "lastName": "Bell",
+    "email": "drakeBell@gmail.com",
+    "salary": 5452,
+    "address": {
+      "id": 65,
+      "postalCode": 3500,
+      "streetName": "Calum",
+      "streetNumber": 1241,
+      "city": {
+        "id": 22,
+        "name": "Jarkov",
+        "country": {
+          "id": 9,
+          "name": "Ukraine"
+        }
+      }
+    }
+  }
+]

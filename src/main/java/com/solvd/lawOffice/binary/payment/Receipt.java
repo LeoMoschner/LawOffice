@@ -1,21 +1,21 @@
 package com.solvd.lawOffice.binary.payment;
 import com.solvd.lawOffice.services.jaxb.DateAdapter;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
+
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.Date;
 
-@XmlRootElement (name = "receipt")
+@XmlRootElement(name = "receipt")
 public class Receipt {
 
-    @XmlAttribute (name = "id")
+   // @XmlAttribute (name = "id")
     private long id;
-    @XmlAttribute (name = "from")
+    //@XmlAttribute (name = "from")
     private String from;
-    @XmlAttribute (name = "to")
+    //@XmlAttribute (name = "to")
     private String to;
-    @XmlAttribute (name = "amount")
+    //@XmlAttribute (name = "amount")
     private int amount;
     @XmlJavaTypeAdapter(DateAdapter.class)
     private Date date;

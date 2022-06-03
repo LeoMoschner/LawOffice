@@ -1,9 +1,12 @@
-package com.solvd.lawOffice.services;
+package com.solvd.lawOffice.utils;
 
-import com.solvd.lawOffice.binary.Menu;
 import com.solvd.lawOffice.binary.lawOfficeStructure.Plaintiff;
 import com.solvd.lawOffice.binary.payment.Payment;
 import com.solvd.lawOffice.binary.people.Client;
+import com.solvd.lawOffice.services.CaseService;
+import com.solvd.lawOffice.services.ClientService;
+import com.solvd.lawOffice.services.PaymentService;
+import com.solvd.lawOffice.services.PlaintiffService;
 import com.solvd.lawOffice.services.mySqlImpl.CaseServiceImpl;
 import com.solvd.lawOffice.services.mySqlImpl.ClientServiceImpl;
 import com.solvd.lawOffice.services.mySqlImpl.PaymentServiceImpl;
@@ -20,7 +23,7 @@ public class MenuService {
 
     private final static Logger LOGGER = LogManager.getLogger(MenuService.class);
 
-    public void menuManagment () {
+    public void menuManagement() {
 
         Menu loginMenu = new Menu ("Welcome to the SOLVD Law Office" +
                 "\n\tPlease enter your client ID.", 10000);

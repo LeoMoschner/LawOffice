@@ -1,0 +1,38 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.lawOffice.dao.IClientDao">
+    <resultMap type="com.solvd.lawOffice.binary.people.Client"
+               id="ClientResultMap" autoMapping="false" >
+        <id column="id" property= "id" />
+        <result column="first_name" property="firstName" />
+        <result column="last_name" property="lastName" />
+        <result column="email" property="email"/>
+        <association property="address"
+                     resultMap="com.solvd.lawOffice.binary.location.Address"/>
+    </resultMap>
+    <select id="getById" resultMap="ClientResultMap">
+        <![CDATA[
+            SELECT * FROM clients where id = ${id}
+        ]]>
+    </select>
+    <insert id="save" useGeneratedKeys="true" keyProperty="true">
+        <![CDATA[
+            INSERT INTO clients (`id_clients`, `first_name`, `last_name`, `email`, `Address_id_Address`) VALUES (#{id}, #{firstName}, #{lastName}, #{email}, #{address})
+
+        ]]>
+    </insert>
+    <!-- How can I update address ID?-->
+    <update id="update" useGeneratedKeys="true" keyProperty="true">
+        <![CDATA[
+
+            UPDATE clients SET `first_name` = ${firstName}, `last_name` = ${lastName}, `email` = ${email} WHERE `id_clients` = ${id}
+        ]]>
+    </update>
+    <delete id="deleteById">
+        <![CDATA[
+            DELETE from clients WHERE id_Clients = ${id}
+        ]]>
+    </delete>
+</mapper>

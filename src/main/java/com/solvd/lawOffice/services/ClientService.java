@@ -11,4 +11,12 @@ public interface ClientService {
     default void saveClient (Client client) {
 
     }
+
+    default void updateClient (Client client) {
+
+    }
+
+    default void deleteClient (long id) {
+
+    }
 }

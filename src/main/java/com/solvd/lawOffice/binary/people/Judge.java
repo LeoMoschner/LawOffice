@@ -1,15 +1,8 @@
 package com.solvd.lawOffice.binary.people;
 
-
-import com.solvd.lawOffice.binary.lawOfficeStructure.Case;
-
-import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
-
 public class Judge extends Person {
 
     private long id;
-    private List<Case> cases;
 
     public long getId() {
         return id;
@@ -19,22 +12,11 @@ public class Judge extends Person {
         this.id = id;
     }
 
-    public List<Case> getCases() {
-        return cases;
-    }
-
-    public void setCases(List<Case> cases) {
-        this.cases = cases;
-    }
 
     @Override
     public String toString () {
 
-        AtomicReference<String> auxStr = null;
-        cases.stream().forEach( c -> {
-            auxStr.set(auxStr.get() + c.getId() + " - ");
-        });
-        return ("Judge: \n\tId: " + id + super.toString() + auxStr);
+        return ("Judge: \n\tId: " + id + super.toString());
 
     }
 

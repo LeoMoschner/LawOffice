@@ -1,0 +1,22 @@
+[
+  {
+    "id": 25,
+    "firstName": "Jordi",
+    "lastName": "Wild",
+    "email": "thewildproject@gmail.com",
+    "address": {
+      "id": 63,
+      "postalCode": 7200,
+      "streetName": "Kelper",
+      "streetNumber": 1851,
+      "city": {
+        "id": 22,
+        "name": "Jarkov",
+        "country": {
+          "id": 9,
+          "name": "Ukraine"
+        }
+      }
+    }
+  }
+]

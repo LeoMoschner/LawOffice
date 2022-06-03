@@ -1,6 +1,7 @@
-    <receipt id = "1">
+    <receipt>
+        <id>1</id>
         <from>Lionel Messi</from>
         <to>Law Office</to>
         <amount>2532</amount>
-        <date>20/05/2021</date>
+        <date>"05-05-2021"</date>
     </receipt>

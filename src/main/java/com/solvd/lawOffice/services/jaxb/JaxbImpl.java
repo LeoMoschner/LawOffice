@@ -1,5 +1,6 @@
 package com.solvd.lawOffice.services.jaxb;
 
+import com.solvd.lawOffice.binary.payment.Receipt;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,14 +15,14 @@ public class JaxbImpl implements JaxbService{
     private final static Logger LOGGER = LogManager.getLogger(JaxbImpl.class);
 
     @Override
-    public Object unmarshall(String path) {
+    public Receipt unmarshall(String path) {
 
         File dataFile = new File (path);
         JAXBContext jaxbCon;
         try {
-            jaxbCon = JAXBContext.newInstance(Object.class);
+            jaxbCon = JAXBContext.newInstance(Receipt.class);
             Unmarshaller unm = jaxbCon.createUnmarshaller();
-            return unm.unmarshal(dataFile);
+            return (Receipt) unm.unmarshal(dataFile);
 
         }catch (JAXBException e) {
 
@@ -30,7 +31,7 @@ public class JaxbImpl implements JaxbService{
         }
     }
 
-    public void marshall (Object obj, String resultPath) {
+    public void marshall (Receipt receipt, String resultPath) {
 
         File result = new File (resultPath);
         JAXBContext jaxbCon;
@@ -38,7 +39,7 @@ public class JaxbImpl implements JaxbService{
         try {
             jaxbCon = JAXBContext.newInstance(this.getClass());
             Marshaller marsh = jaxbCon.createMarshaller();
-            marsh.marshal(obj, result);
+            marsh.marshal(receipt, result);
         }catch (JAXBException e) {
 
             LOGGER.error ("ERROR: Could not complete the Jaxb operation", e);

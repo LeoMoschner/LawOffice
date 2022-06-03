@@ -1,6 +1,6 @@
 package com.solvd.lawOffice.dao.jbdcMySqlImpl;
 
-import com.solvd.lawOffice.services.connectionPool.ConnectionPool;
+import com.solvd.lawOffice.utils.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AbstractDao {
+public abstract class AbstractDao {
 
     private static final Logger LOGGER = LogManager.getLogger(AbstractDao.class);
 

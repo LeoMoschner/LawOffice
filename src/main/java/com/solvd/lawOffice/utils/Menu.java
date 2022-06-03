@@ -1,4 +1,4 @@
-package com.solvd.lawOffice.binary;
+package com.solvd.lawOffice.utils;
 
 
 import org.apache.logging.log4j.LogManager;

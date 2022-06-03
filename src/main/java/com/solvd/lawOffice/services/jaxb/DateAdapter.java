@@ -5,12 +5,12 @@ import java.text.SimpleDateFormat;
 public class DateAdapter extends XmlAdapter {
     @Override
     public Object unmarshal(Object inputDate) throws Exception {
-        return new SimpleDateFormat("dd/MM/yyyy").format(inputDate);
+        return new SimpleDateFormat("MM/MM/YYYY").format(inputDate);
     }
 
     @Override
     public Object marshal(Object inputDate) throws Exception {
 
-        return new SimpleDateFormat("dd/MM/yyyy").parse((String) inputDate);
+        return new SimpleDateFormat("DD/MM/YYYY").parse((String) inputDate);
     }
 }

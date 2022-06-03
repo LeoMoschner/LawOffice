@@ -17,7 +17,7 @@ public class Receipt {
     private String to;
     //@XmlAttribute (name = "amount")
     private int amount;
-    @XmlJavaTypeAdapter(DateAdapter.class)
+    //@XmlJavaTypeAdapter(DateAdapter.class)
     private Date date;
 
     public long getId() {

@@ -54,7 +54,7 @@ public class MenuService {
                 pltfList.stream().forEach(pl -> {
 
                     clientCasesMenuStatement.set(clientCasesMenuStatement + ("\t" + casesAmount.getAndIncrement() + ". " +
-                            caseServ.getById(pl.getCaseId()).getName() + "\n"));
+                            caseServ.getCase(pl.getCaseId()).getName() + "\n"));
                 });
 
                 Menu clientCasesMenu = new Menu("Active cases of client: " + clt.getFullName()
@@ -63,7 +63,7 @@ public class MenuService {
 
                 int caseIndex = clientCasesMenu.getSelection() - 1;
                 long caseId = pltfList.get(caseIndex).getCaseId();
-                LOGGER.info(caseServ.getById(caseId).toString());
+                LOGGER.info(caseServ.getCase(caseId).toString());
 
                 break;
             }

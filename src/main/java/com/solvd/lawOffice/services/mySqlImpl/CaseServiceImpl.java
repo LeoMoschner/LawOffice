@@ -7,7 +7,7 @@ import com.solvd.lawOffice.services.CaseService;
 public class CaseServiceImpl implements CaseService {
 
     @Override
-    public Case getById(long id) {
+    public Case getCase(long id) {
         CaseDao caseDao = new CaseDao();
         return caseDao.getById(id);
     }

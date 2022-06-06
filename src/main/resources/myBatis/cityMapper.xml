@@ -1,0 +1,34 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.lawOffice.dao.ICityDao">
+    <resultMap type="com.solvd.lawOffice.binary.location.City"
+               id="CityResultMap" autoMapping="false" >
+        <id column="id_Cities" property= "id" />
+        <result column="name" property="name" />
+        <association property="country" resultMap="com.solvd.lawOffice.dao.ICountryDao.CountryResultMap" />
+    </resultMap>
+
+    <select id="getById" resultMap="CityResultMap">
+        SELECT cit.id_Cities, cit.name, cit.Country_id_Country,
+        coun.id_Country, coun.name
+        FROM cities cit
+        JOIN country coun ON coun.id_Country = cit.Country_id_Country
+        WHERE id_Cities = #{id}
+    </select>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="true">
+            INSERT INTO cities (`id_Cities`, `name`) VALUES (#{id}, #{name})
+    </insert>
+
+    <update id="update" useGeneratedKeys="true" keyProperty="true">
+            UPDATE cities SET `name` = ${name} WHERE `id_Cities` = ${id_Cities}
+    </update>
+
+    <delete id="deleteById">
+            DELETE from cities WHERE id_Cities = ${id_Cities}
+    </delete>
+</mapper>

@@ -10,7 +10,6 @@ public class PlaintiffServiceImpl implements PlaintiffService {
 
     @Override
     public List<Plaintiff> getByClientId (long clientId) {
-
         PlaintiffDao pltfDao = new PlaintiffDao();
         return pltfDao.getById(clientId);
     }

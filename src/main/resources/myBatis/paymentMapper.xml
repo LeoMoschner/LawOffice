@@ -1,0 +1,37 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.lawOffice.dao.IPaymentDao">
+    <resultMap type="com.solvd.lawOffice.binary.payment.Payment"
+               id="PaymentResultMap" autoMapping="false" >
+        <id column="id_client" property= "id" />
+        <result column="id_Payments" property="id"/>
+        <result column="amount" property="amount"/>
+        <association property="receipt" resultMap="com.solvd.lawOffice.dao.IReceiptDao.ReceiptResultMap" />
+        <association property="client" resultMap="com.solvd.lawOffice.dao.IClientDao.ClientResultMap" />
+    </resultMap>
+
+    <select id="getById" resultMap="PaymentResultMap">
+        SELECT
+        pay.id_Payments, pay.amount, pay.date, pay.Receipts_id_Receipts, pay.Clients_id_clients, pay.id_Employees,
+        rec.id_Receipts, rec.from, rec.to, rec.amount, rec.date,
+        cli.id_Clients, cli.first_name, cli.last_name, cli.email, cli.Address_id_Address
+        FROM payments pay
+        JOIN receipts rec ON rec.id_Receipts = pay.Receipts_id_Receipts
+        JOIN clients cli ON cli.id_clients = pay.Clients_id_clients
+        WHERE Clients_id_Clients = #{id_client}
+    </select>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="true">
+            INSERT INTO payments (`id_Payments`, `amount`) VALUES (#{id}, #{amount})
+    </insert>
+    <update id="update" useGeneratedKeys="true" keyProperty="true">
+            UPDATE payments SET `amount` = #{amount} WHERE `id_Payments` = #{id}
+    </update>
+    <delete id="deleteById">
+            DELETE from payments WHERE id_Payments = #{id_Payments}
+    </delete>
+</mapper>

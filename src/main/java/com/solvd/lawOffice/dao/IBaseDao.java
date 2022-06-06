@@ -3,9 +3,7 @@ package com.solvd.lawOffice.dao;
 
 public interface IBaseDao<T> {
 
-    default T getById(long id)  {
-        return null;
-    }
+    T getById(long id) throws RuntimeException;
 
     default void save (T entity) {
 

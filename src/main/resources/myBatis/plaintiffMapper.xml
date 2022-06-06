@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.lawOffice.dao.IPlaintiffDao">
+    <resultMap type="com.solvd.lawOffice.binary.lawOfficeStructure.Plaintiff"
+               id="PlaintiffResultMap" autoMapping="false" >
+        <id column="id_Client" property= "id" />
+        <result column="id_Demandent" property="id"/>
+        <result column="Clients_id_Clients" property="clientId" />
+        <result column="Cases_id_Cases" property="caseId" />
+
+    </resultMap>
+    <select id="getById" resultMap="PlaintiffResultMap">
+        SELECT * FROM plaintiffies WHERE Clients_id_Clients = ${id_Client}
+    </select>
+    <delete id="deleteById">
+            DELETE from plaintiffies WHERE id_Demandent = #{id_Demandent}
+    </delete>
+</mapper>

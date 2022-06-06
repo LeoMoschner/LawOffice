@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.lawOffice.dao.IReceiptDao">
+    <resultMap type="com.solvd.lawOffice.binary.payment.Receipt"
+               id="ReceiptResultMap" autoMapping="false" >
+        <id column="id_Receipts" property= "id" />
+        <result column="from" property="from" />
+        <result column="to" property="to" />
+    </resultMap>
+</mapper>

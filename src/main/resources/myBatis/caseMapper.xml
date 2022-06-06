@@ -1,0 +1,39 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.lawOffice.dao.ICaseDao">
+    <resultMap type="com.solvd.lawOffice.binary.lawOfficeStructure.Case"
+               id="CaseResultMap" autoMapping="false" >
+
+        <id column="id_Cases" property= "id" />
+        <result column="name" property="name" />
+        <result column="defendant" property="defendant" />
+        <association property="court" resultMap="com.solvd.lawOffice.dao.ICourtDao.CourtResultMap" />
+        <association property="judge" resultMap="com.solvd.lawOffice.dao.IJudgeDao.JudgeResultMap" />
+    </resultMap>
+
+    <select id="getById" resultMap="CaseResultMap">
+        SELECT cas.id_Cases, cas.name, cas.defendant,
+            cour.id_Courts, cour.name, cour.Address_id_Address,
+            jud.id_Judge, jud.first_name, jud.last_name, jud.email, jud.Address_id_Address
+        FROM cases cas
+        JOIN courts cour ON cour.id_Courts = cas.Courts_id_Courts
+        JOIN judge jud ON jud.id_Judge = cas.Judge_id_Judge
+        WHERE id_Cases = #{id_Cases}
+    </select>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="true">
+            INSERT INTO cases (`id_Cases`, `name`, `defendant`) VALUES (#{id}, #{name}, #{defendant})
+    </insert>
+
+    <update id="update" useGeneratedKeys="true" keyProperty="true">
+            UPDATE cases SET `name` = #{name}, `defendant` = #{defendant} WHERE `id_cases` = #{id}
+    </update>
+
+    <delete id="deleteById">
+            DELETE from cases WHERE id_Cases = #{id_Cases}
+    </delete>
+</mapper>

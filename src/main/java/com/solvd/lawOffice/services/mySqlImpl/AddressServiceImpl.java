@@ -8,7 +8,6 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public Address getAddress (long id) {
-
         AddressDao adDao = new AddressDao();
         return adDao.getById(id);
 

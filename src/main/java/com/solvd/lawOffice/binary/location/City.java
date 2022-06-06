@@ -33,7 +33,7 @@ public class City {
 
     @Override
     public String toString() {
-        return (name + " - " + country.toString());
+        return (name + " - " + this.country.toString());
     }
 
     @Override

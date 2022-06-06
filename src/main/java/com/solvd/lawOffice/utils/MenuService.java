@@ -7,10 +7,10 @@ import com.solvd.lawOffice.services.CaseService;
 import com.solvd.lawOffice.services.ClientService;
 import com.solvd.lawOffice.services.PaymentService;
 import com.solvd.lawOffice.services.PlaintiffService;
-import com.solvd.lawOffice.services.mySqlImpl.CaseServiceImpl;
-import com.solvd.lawOffice.services.mySqlImpl.ClientServiceImpl;
-import com.solvd.lawOffice.services.mySqlImpl.PaymentServiceImpl;
-import com.solvd.lawOffice.services.mySqlImpl.PlaintiffServiceImpl;
+import com.solvd.lawOffice.services.myBatisImpl.CaseServiceImpl;
+import com.solvd.lawOffice.services.myBatisImpl.ClientServiceImpl;
+import com.solvd.lawOffice.services.myBatisImpl.PaymentServiceImpl;
+import com.solvd.lawOffice.services.myBatisImpl.PlaintiffServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

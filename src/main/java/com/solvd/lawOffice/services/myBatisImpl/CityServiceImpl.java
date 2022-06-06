@@ -1,4 +1,5 @@
 package com.solvd.lawOffice.services.myBatisImpl;
+
 import com.solvd.lawOffice.binary.location.City;
 import com.solvd.lawOffice.dao.ICityDao;
 import com.solvd.lawOffice.services.CityService;
@@ -17,6 +18,33 @@ public class CityServiceImpl implements CityService {
             ICityDao citDao = session.getMapper(ICityDao.class);
             City outputCit = citDao.getById(id);
             return outputCit;
+        }
+    }
+
+    @Override
+    public void saveCity(City city) {
+        try (SqlSession session = SessionFactory.getInstance().getSession()) {
+            ICityDao cityDao = session.getMapper(ICityDao.class);
+            cityDao.save(city);
+            session.commit();
+        }
+    }
+
+    @Override
+    public void updateCity (City city) {
+        try (SqlSession session = SessionFactory.getInstance().getSession()) {
+            ICityDao cityDao = session.getMapper(ICityDao.class);
+            cityDao.update(city);
+            session.commit();
+        }
+    }
+
+    @Override
+    public void deleteCity (long id) {
+        try (SqlSession session = SessionFactory.getInstance().getSession()) {
+            ICityDao cityDao = session.getMapper(ICityDao.class);
+            cityDao.deleteById(id);
+            session.commit();
         }
     }
 }

@@ -14,4 +14,19 @@ public class PlaintiffServiceImpl implements PlaintiffService {
         return pltfDao.getById(clientId);
     }
 
+    public void savePlaintiff (List<Plaintiff> plaintiffs) {
+        PlaintiffDao pltfDao = new PlaintiffDao();
+        pltfDao.save(plaintiffs);
+    }
+
+    public void updatePlaintiff (List<Plaintiff> plaintiffs) {
+        PlaintiffDao pltfDao = new PlaintiffDao();
+        pltfDao.update(plaintiffs);
+    }
+
+    public void deletePlaintiff (long id) {
+        PlaintiffDao pltfDao = new PlaintiffDao();
+        pltfDao.deleteById(id);
+    }
+
 }

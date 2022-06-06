@@ -13,4 +13,19 @@ public class PaymentServiceImpl implements PaymentService {
         PaymentDao payDao = new PaymentDao();
         return payDao.getById(clientId);
     }
+
+    public void savePayment(List<Payment> payment) {
+        PaymentDao payDao = new PaymentDao();
+        payDao.save(payment);
+    }
+
+    public void updatePayment(List<Payment> payment) {
+        PaymentDao payDao = new PaymentDao();
+        payDao.update(payment);
+    }
+
+    public void deletePayment(long id) {
+        PaymentDao payDao = new PaymentDao();
+        payDao.deleteById(id);
+    }
 }

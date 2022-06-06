@@ -11,4 +11,22 @@ public class CaseServiceImpl implements CaseService {
         CaseDao caseDao = new CaseDao();
         return caseDao.getById(id);
     }
+
+    @Override
+    public void saveCase(Case cas) {
+        CaseDao caseDao = new CaseDao();
+        caseDao.save(cas);
+    }
+
+    @Override
+    public void updateCase(Case cas) {
+        CaseDao caseDao = new CaseDao();
+        caseDao.update(cas);
+    }
+
+    @Override
+    public void deleteCase (long id) {
+        CaseDao caseDao = new CaseDao();
+        caseDao.deleteById(id);
+    }
 }

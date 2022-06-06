@@ -1,12 +1,7 @@
 package com.solvd.lawOffice.services.myBatisImpl;
 
 import com.solvd.lawOffice.binary.lawOfficeStructure.Case;
-import com.solvd.lawOffice.binary.location.Address;
-import com.solvd.lawOffice.binary.people.Client;
 import com.solvd.lawOffice.dao.ICaseDao;
-import com.solvd.lawOffice.dao.IClientDao;
-import com.solvd.lawOffice.dao.jbdcMySqlImpl.AddressDao;
-import com.solvd.lawOffice.dao.jbdcMySqlImpl.CaseDao;
 import com.solvd.lawOffice.services.CaseService;
 import com.solvd.lawOffice.utils.SessionFactory;
 import org.apache.ibatis.session.SqlSession;
@@ -22,8 +17,34 @@ public class CaseServiceImpl implements CaseService {
         try (SqlSession session = SessionFactory.getInstance().getSession()){
             ICaseDao caseDao = session.getMapper(ICaseDao.class);
             Case outputCase = caseDao.getById(id);
-            LOGGER.info("Case: " + outputCase);
             return outputCase;
+        }
+    }
+
+    @Override
+    public void saveCase(Case cas) {
+        try (SqlSession session = SessionFactory.getInstance().getSession()) {
+            ICaseDao casDao = session.getMapper(ICaseDao.class);
+            casDao.save(cas);
+            session.commit();
+        }
+    }
+
+    @Override
+    public void updateCase (Case cas) {
+        try (SqlSession session = SessionFactory.getInstance().getSession()) {
+            ICaseDao casDao = session.getMapper(ICaseDao.class);
+            casDao.update(cas);
+            session.commit();
+        }
+    }
+
+    @Override
+    public void deleteCase (long id) {
+        try (SqlSession session = SessionFactory.getInstance().getSession()) {
+            ICaseDao casDao = session.getMapper(ICaseDao.class);
+            casDao.deleteById(id);
+            session.commit();
         }
     }
 }

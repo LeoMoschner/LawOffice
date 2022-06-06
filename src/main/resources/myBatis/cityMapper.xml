@@ -7,7 +7,7 @@
 <mapper namespace="com.solvd.lawOffice.dao.ICityDao">
     <resultMap type="com.solvd.lawOffice.binary.location.City"
                id="CityResultMap" autoMapping="false" >
-        <id column="id_Cities" property= "id" />
+        <id column="id_Cities" property="id" />
         <result column="name" property="name" />
         <association property="country" resultMap="com.solvd.lawOffice.dao.ICountryDao.CountryResultMap" />
     </resultMap>

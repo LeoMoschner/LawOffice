@@ -7,17 +7,23 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.Date;
 
 @XmlRootElement(name = "receipt")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Receipt {
 
-   // @XmlAttribute (name = "id")
+    @XmlAttribute
     private long id;
-    //@XmlAttribute (name = "from")
+
+    @XmlElement
     private String from;
-    //@XmlAttribute (name = "to")
+
+    @XmlElement
     private String to;
-    //@XmlAttribute (name = "amount")
+
+    @XmlElement
     private int amount;
-    //@XmlJavaTypeAdapter(DateAdapter.class)
+
+    @XmlElement (name = "date")
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private Date date;
 
     public long getId() {
@@ -62,22 +68,18 @@ public class Receipt {
 
     @Override
     public String toString() {
-
         return ("Receipt: \n\tId: " + id + "\n\tFrom: " + from
                 + "\n\tTo: " + to + "\n\tAmount: $" + amount + "\n\tDate: " + date);
     }
 
     @Override
     public boolean equals (Object obj){
-
         if (obj == null) {
             return false;
         }
-
         if (this == obj) {
             return true;
         }
-
         if ((obj instanceof Receipt) && ((Receipt)obj).getId() == this.id) {
             return true;
         }else {

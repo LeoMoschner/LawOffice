@@ -1,7 +1,5 @@
 package com.solvd.lawOffice.services.jackson;
 
-import com.fasterxml.jackson.core.exc.StreamReadException;
-import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.solvd.lawOffice.binary.lawOfficeStructure.License;
@@ -12,18 +10,17 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class LicensesJackson implements IBaseJakcson<License> {
+public class LicensesJackson implements IBaseJackson<License> {
 
-    private final static String LICENSE_PATH = "src/main/resources/jsonFiles/LawyerLicenses.json";
     private final static Logger LOGGER = LogManager.getLogger(LicensesJackson.class);
 
     @Override
-    public List<License> getJsonList () {
+    public List<License> getJsonList (File file) {
 
         ObjectMapper om = new ObjectMapper();
         try {
             JavaType type = om.getTypeFactory().constructCollectionType(List.class, License.class);
-            List<License> licensesList = om.readValue(new File(LICENSE_PATH), type);
+            List<License> licensesList = om.readValue(file, type);
             return licensesList;
         } catch (IOException e) {
             LOGGER.error("ERROR reading the Json File", e);

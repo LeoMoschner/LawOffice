@@ -10,18 +10,17 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class EmployeesJackson implements IBaseJakcson<Employee> {
+public class EmployeesJackson implements IBaseJackson<Employee> {
 
-    private final static String LICENSE_PATH = "src/main/resources/jsonFiles/Employees.json";
     private final static Logger LOGGER = LogManager.getLogger(EmployeesJackson.class);
 
     @Override
-    public List<Employee> getJsonList () {
+    public List<Employee> getJsonList (File file) {
 
         ObjectMapper om = new ObjectMapper();
         try {
             JavaType type = om.getTypeFactory().constructCollectionType(List.class, Employee.class);
-            List<Employee> employeesList = om.readValue(new File(LICENSE_PATH), type);
+            List<Employee> employeesList = om.readValue(file, type);
             return employeesList;
         } catch (IOException e) {
             LOGGER.error("ERROR reading the Json File", e);

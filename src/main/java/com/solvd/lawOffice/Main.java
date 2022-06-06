@@ -12,8 +12,7 @@ import com.solvd.lawOffice.utils.MenuService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.List;
-
+import java.io.File;
 
 public class Main {
 
@@ -30,12 +29,19 @@ public class Main {
 
         // Jackson
 
+        String EMPLOYEES_PATH = "src/main/resources/jsonFiles/Employees.json";
+        String JUDGE_PATH = "src/main/resources/jsonFiles/Judges.json";
+        String LICENSE_PATH = "src/main/resources/jsonFiles/LawyerLicenses.json";
+        File empFile = new File(EMPLOYEES_PATH);
+        File judFile = new File(JUDGE_PATH);
+        File licFile = new File(LICENSE_PATH);
+
         EmployeesJackson empJack = new EmployeesJackson();
         JudgesJackson judJack = new JudgesJackson();
         LicensesJackson licJack = new LicensesJackson();
-        LOGGER.info("Employees getted by json File:\n" + empJack.getJsonList().toString());
-        LOGGER.info("Judges getted by json File:\n" + judJack.getJsonList().toString());
-        LOGGER.info("Lawyer Licenses getted by json File:\n" + licJack.getJsonList().toString());
+        LOGGER.info("Employees getted by json File:\n" + empJack.getJsonList(empFile).toString());
+        LOGGER.info("Judges getted by json File:\n" + judJack.getJsonList(judFile).toString());
+        LOGGER.info("Lawyer Licenses getted by json File:\n" + licJack.getJsonList(licFile).toString());
 
         // My Batis Test (Could not get a client, keep getting null)
 

@@ -1,4 +1,3 @@
-
 -- Employees with salary > 3000
 
     SELECT * from employees having salary > 3000

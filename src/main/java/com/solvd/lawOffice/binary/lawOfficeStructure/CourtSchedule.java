@@ -1,6 +1,5 @@
 package com.solvd.lawOffice.binary.lawOfficeStructure;
 
-import com.solvd.lawOffice.binary.lawOfficeStructure.Court;
 import com.solvd.lawOffice.binary.people.Judge;
 import org.apache.commons.lang3.time.DateUtils;
 
@@ -44,26 +43,21 @@ public class CourtSchedule {
     }
 
     @Override
-    public String toString () {
-
-        return ("Court schedule: \n\tId: " + id + "\n\tCourt: " + court.getName()
-                + "\n\tJudge: " + judge.getFullName() + "\n\tDate and time: " + dateAndTime);
+    public String toString() {
+        return ("Court schedule: \n\tId: " + id + "\n\tCourt: " + court.getName() + "\n\tJudge: " + judge.getFullName() + "\n\tDate and time: " + dateAndTime);
     }
 
     @Override
-    public boolean equals (Object obj){
-
+    public boolean equals(Object obj) {
         if (obj == null) {
             return false;
         }
-
         if (this == obj) {
             return true;
         }
-
-        if ((obj instanceof CourtSchedule) && ((CourtSchedule)obj).getId() == this.id) {
+        if ((obj instanceof CourtSchedule) && ((CourtSchedule) obj).getId() == this.id) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }

@@ -1,6 +1,5 @@
 package com.solvd.lawOffice.binary.people;
 
-
 import com.solvd.lawOffice.binary.location.Address;
 
 public abstract class Person {
@@ -9,7 +8,6 @@ public abstract class Person {
     private String lastName;
     private String email;
     private Address address;
-
 
     public String getFirstName() {
         return firstName;
@@ -43,13 +41,12 @@ public abstract class Person {
         this.address = address;
     }
 
-    public String getFullName () {
+    public String getFullName() {
         return (firstName + " " + lastName);
     }
 
     @Override
-    public String toString () {
-
+    public String toString() {
         return ("\n\tFirst name: " + firstName + "\n\tLast name: " + lastName
                 + "\n\tE-mail: " + email + "\n\tAddress:\n\t\t"
                 + address.getStreetName() + " " + address.getStreetNumber()

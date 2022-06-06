@@ -15,8 +15,8 @@ public class PlaintiffServiceImpl implements PlaintiffService {
     private final static Logger LOGGER = LogManager.getLogger(PlaintiffServiceImpl.class);
 
     @Override
-    public List<Plaintiff> getByClientId (long id) {
-        try (SqlSession session = SessionFactory.getInstance().getSession()){
+    public List<Plaintiff> getByClientId(long id) {
+        try (SqlSession session = SessionFactory.getInstance().getSession()) {
             IPlaintiffDao pltfDao = session.getMapper(IPlaintiffDao.class);
             List<Plaintiff> outputPltfList = pltfDao.getById(id);
             return outputPltfList;
@@ -33,7 +33,7 @@ public class PlaintiffServiceImpl implements PlaintiffService {
     }
 
     @Override
-    public void updatePlaintiff (List<Plaintiff> plaintiffs) {
+    public void updatePlaintiff(List<Plaintiff> plaintiffs) {
         try (SqlSession session = SessionFactory.getInstance().getSession()) {
             IPlaintiffDao pltfDao = session.getMapper(IPlaintiffDao.class);
             pltfDao.update(plaintiffs);
@@ -42,7 +42,7 @@ public class PlaintiffServiceImpl implements PlaintiffService {
     }
 
     @Override
-    public void deletePlaintiff (long id) {
+    public void deletePlaintiff(long id) {
         try (SqlSession session = SessionFactory.getInstance().getSession()) {
             IPlaintiffDao pltfDao = session.getMapper(IPlaintiffDao.class);
             pltfDao.deleteById(id);

@@ -9,22 +9,22 @@ import java.util.List;
 public class PlaintiffServiceImpl implements PlaintiffService {
 
     @Override
-    public List<Plaintiff> getByClientId (long clientId) {
+    public List<Plaintiff> getByClientId(long clientId) {
         PlaintiffDao pltfDao = new PlaintiffDao();
         return pltfDao.getById(clientId);
     }
 
-    public void savePlaintiff (List<Plaintiff> plaintiffs) {
+    public void savePlaintiff(List<Plaintiff> plaintiffs) {
         PlaintiffDao pltfDao = new PlaintiffDao();
         pltfDao.save(plaintiffs);
     }
 
-    public void updatePlaintiff (List<Plaintiff> plaintiffs) {
+    public void updatePlaintiff(List<Plaintiff> plaintiffs) {
         PlaintiffDao pltfDao = new PlaintiffDao();
         pltfDao.update(plaintiffs);
     }
 
-    public void deletePlaintiff (long id) {
+    public void deletePlaintiff(long id) {
         PlaintiffDao pltfDao = new PlaintiffDao();
         pltfDao.deleteById(id);
     }

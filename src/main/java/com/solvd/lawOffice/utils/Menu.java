@@ -13,7 +13,7 @@ public class Menu {
     private final int options;
     private int selection;
 
-    public Menu (String statement, int options){
+    public Menu(String statement, int options) {
         this.statement = statement;
         this.options = options;
     }
@@ -33,7 +33,7 @@ public class Menu {
         this.selection = Integer.parseInt(checkSelections(userInput));
     }
 
-    private String userInput(){
+    private String userInput() {
         Scanner input = new Scanner(System.in);
         if (input.hasNextLine()) {
             String scannerSelection = input.nextLine();
@@ -44,18 +44,17 @@ public class Menu {
     }
 
     private String checkSelections(String inputSelection) {
-
-        if(inputSelection.isEmpty()) {
+        if (inputSelection.isEmpty()) {
             throw new RuntimeException();   //null
-        }else {
-            if(inputSelection.matches("[+-]?\\d*")){
+        } else {
+            if (inputSelection.matches("[+-]?\\d*")) {
 
-                if (Integer.parseInt(inputSelection) > 0 && Integer.parseInt(inputSelection) <= this.options){
+                if (Integer.parseInt(inputSelection) > 0 && Integer.parseInt(inputSelection) <= this.options) {
                     return inputSelection;
-                }else {
+                } else {
                     throw new RuntimeException(); // number out of range
                 }
-            }else {
+            } else {
                 throw new RuntimeException(); // not a number
             }
         }

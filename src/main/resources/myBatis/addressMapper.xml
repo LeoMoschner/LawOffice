@@ -3,15 +3,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.solvd.lawOffice.dao.IAddressDao">
     <resultMap type="com.solvd.lawOffice.binary.location.Address"
-               id="AddressResultMap" autoMapping="false" >
-        <id column="id_Address" property= "id" />
-        <result column="postal_Code" property="postalCode" />
-        <result column="street_name" property="streetName" />
-        <result column="street_number" property="streetNumber" />
-        <association property="city" resultMap="com.solvd.lawOffice.dao.ICityDao.CityResultMap" />
+               id="AddressResultMap" autoMapping="false">
+        <id column="id_Address" property="id"/>
+        <result column="postal_Code" property="postalCode"/>
+        <result column="street_name" property="streetName"/>
+        <result column="street_number" property="streetNumber"/>
+        <association property="city" resultMap="com.solvd.lawOffice.dao.ICityDao.CityResultMap"/>
     </resultMap>
     <select id="getById" resultMap="AddressResultMap">
         SELECT ad.id_Address, ad.postal_code, ad.street_name, ad.street_number,
@@ -23,13 +22,14 @@
         WHERE id_Address = #{id_Address}
     </select>
     <insert id="save" useGeneratedKeys="true" keyProperty="true">
-            INSERT INTO address(`id_address`, `postal_code`, `street_name`, `street_number`)
-            VALUES (#{id}, #{postalCode}, #{streetName}, #{streetNumber})
+        INSERT INTO address(`id_address`, `postal_code`, `street_name`, `street_number`)
+        VALUES (#{id}, #{postalCode}, #{streetName}, #{streetNumber})
     </insert>
     <update id="update" useGeneratedKeys="true" keyProperty="true">
-            UPDATE address SET `postal_code` = #{postalCode}, `street_name` = #{streetName}, `streetNumber` = #{streetNumber} WHERE `id_Address` = #{id}
+        UPDATE address SET `postal_code` = #{postalCode}, `street_name` = #{streetName}, `streetNumber` =
+        #{streetNumber} WHERE `id_Address` = #{id}
     </update>
     <delete id="deleteById">
-            DELETE from address WHERE id_Address = #{id_Address}
+        DELETE from address WHERE id_Address = #{id_Address}
     </delete>
 </mapper>

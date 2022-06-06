@@ -7,19 +7,19 @@ import java.util.List;
 
 public interface PlaintiffService {
 
-    default List<Plaintiff> getByClientId (long clientId){
+    default List<Plaintiff> getByClientId(long clientId) {
         return null;
     }
 
-    default void savePlaintiff (List<Plaintiff> plaintiffs) {
+    default void savePlaintiff(List<Plaintiff> plaintiffs) {
 
     }
 
-    default void updatePlaintiff (List<Plaintiff> plaintiffs) {
+    default void updatePlaintiff(List<Plaintiff> plaintiffs) {
 
     }
 
-    default void deletePlaintiff (long id) {
+    default void deletePlaintiff(long id) {
 
     }
 

@@ -16,8 +16,7 @@ public class JudgesJackson implements IBaseJackson<Judge> {
     private final static Logger LOGGER = LogManager.getLogger(JudgesJackson.class);
 
     @Override
-    public List<Judge> getJsonList (File file) {
-
+    public List<Judge> getJsonList(File file) {
         ObjectMapper om = new ObjectMapper();
         try {
             JavaType type = om.getTypeFactory().constructCollectionType(List.class, Judge.class);

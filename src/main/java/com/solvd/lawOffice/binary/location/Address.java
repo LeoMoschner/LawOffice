@@ -50,26 +50,22 @@ public class Address {
 
     @Override
     public String toString() {
-
         return ("Address: \n\tId: " + id + "\n\tPostal code: "
                 + postalCode + "\n\tStreet: " + streetName + " " + streetNumber
                 + "\n\tCity: " + city);
     }
 
     @Override
-    public boolean equals (Object obj){
-
+    public boolean equals(Object obj) {
         if (obj == null) {
             return false;
         }
-
         if (this == obj) {
             return true;
         }
-
-        if ((obj instanceof Address) && ((Address)obj).getId() == this.id) {
+        if ((obj instanceof Address) && ((Address) obj).getId() == this.id) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }

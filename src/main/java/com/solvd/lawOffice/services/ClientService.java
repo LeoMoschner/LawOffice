@@ -4,19 +4,19 @@ import com.solvd.lawOffice.binary.people.Client;
 
 public interface ClientService {
 
-    default Client getClient (long id) {
+    default Client getClient(long id) {
         return null;
     }
 
-    default void saveClient (Client client) {
+    default void saveClient(Client client) {
 
     }
 
-    default void updateClient (Client client) {
+    default void updateClient(Client client) {
 
     }
 
-    default void deleteClient (long id) {
+    default void deleteClient(long id) {
 
     }
 }

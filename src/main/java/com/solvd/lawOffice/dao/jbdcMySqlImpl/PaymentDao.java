@@ -18,18 +18,15 @@ public class PaymentDao extends AbstractDao implements IPaymentDao {
     private final static String SELECT_BY_CLIENT_ID = "SELECT * from payments WHERE Clients_id_Clients = ?";
 
     @Override
-    public List<Payment> getById (long clientId) {
-
+    public List<Payment> getById(long clientId) {
         PreparedStatement pr = null;
         ResultSet rs = null;
         Connection con = getConnection();
-
         try {
             pr = con.prepareStatement(SELECT_BY_CLIENT_ID);
             pr.setLong(1, clientId);
             rs = pr.executeQuery();
-            List<Payment> payList = new ArrayList<> ();
-
+            List<Payment> payList = new ArrayList<>();
             while (rs.next()) {
                 Payment pay = new Payment();
                 pay.setId(rs.getLong("id_Payments"));
@@ -39,11 +36,9 @@ public class PaymentDao extends AbstractDao implements IPaymentDao {
                 pay.setReceipt(recDao.getById(rs.getLong("Receipts_id_Receipts")));
                 ClientDao cliDao = new ClientDao();
                 pay.setClient(cliDao.getById(rs.getLong("Clients_id_Clients")));
-                // employese?
                 payList.add(pay);
             }
             return payList;
-
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not return the payments list", e);
             throw new RuntimeException();

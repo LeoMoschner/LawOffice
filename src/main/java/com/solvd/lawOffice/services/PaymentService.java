@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface PaymentService {
 
-    default List<Payment> getByClientId (long clientId){
+    default List<Payment> getByClientId(long clientId) {
         return null;
     }
 

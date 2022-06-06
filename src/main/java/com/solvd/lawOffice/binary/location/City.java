@@ -1,6 +1,5 @@
 package com.solvd.lawOffice.binary.location;
 
-
 public class City {
 
     private long id;
@@ -37,7 +36,7 @@ public class City {
     }
 
     @Override
-    public boolean equals (Object obj){
+    public boolean equals(Object obj) {
 
         if (obj == null) {
             return false;
@@ -47,9 +46,9 @@ public class City {
             return true;
         }
 
-        if ((obj instanceof City) && ((City)obj).getId() == this.id) {
+        if ((obj instanceof City) && ((City) obj).getId() == this.id) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }

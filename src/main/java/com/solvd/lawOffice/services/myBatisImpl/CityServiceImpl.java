@@ -13,8 +13,8 @@ public class CityServiceImpl implements CityService {
     private final static Logger LOGGER = LogManager.getLogger(CityServiceImpl.class);
 
     @Override
-    public City getCity (long id) {
-        try (SqlSession session = SessionFactory.getInstance().getSession()){
+    public City getCity(long id) {
+        try (SqlSession session = SessionFactory.getInstance().getSession()) {
             ICityDao citDao = session.getMapper(ICityDao.class);
             City outputCit = citDao.getById(id);
             return outputCit;
@@ -31,7 +31,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public void updateCity (City city) {
+    public void updateCity(City city) {
         try (SqlSession session = SessionFactory.getInstance().getSession()) {
             ICityDao cityDao = session.getMapper(ICityDao.class);
             cityDao.update(city);
@@ -40,7 +40,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public void deleteCity (long id) {
+    public void deleteCity(long id) {
         try (SqlSession session = SessionFactory.getInstance().getSession()) {
             ICityDao cityDao = session.getMapper(ICityDao.class);
             cityDao.deleteById(id);

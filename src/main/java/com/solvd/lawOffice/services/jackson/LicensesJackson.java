@@ -15,8 +15,7 @@ public class LicensesJackson implements IBaseJackson<License> {
     private final static Logger LOGGER = LogManager.getLogger(LicensesJackson.class);
 
     @Override
-    public List<License> getJsonList (File file) {
-
+    public List<License> getJsonList(File file) {
         ObjectMapper om = new ObjectMapper();
         try {
             JavaType type = om.getTypeFactory().constructCollectionType(List.class, License.class);

@@ -22,25 +22,21 @@ public class Employee extends Person {
     }
 
     @Override
-    public String toString () {
-
-        return ("Employee:\n\tId: " + id +  super.toString() + "\n\tSalary: $" + salary);
+    public String toString() {
+        return ("Employee:\n\tId: " + id + super.toString() + "\n\tSalary: $" + salary);
     }
 
     @Override
-    public boolean equals (Object obj){
-
+    public boolean equals(Object obj) {
         if (obj == null) {
             return false;
         }
-
         if (this == obj) {
             return true;
         }
-
-        if ((obj instanceof Employee) && ((Employee)obj).getId() == this.id) {
+        if ((obj instanceof Employee) && ((Employee) obj).getId() == this.id) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }

@@ -25,7 +25,7 @@ public class CaseServiceImpl implements CaseService {
     }
 
     @Override
-    public void deleteCase (long id) {
+    public void deleteCase(long id) {
         CaseDao caseDao = new CaseDao();
         caseDao.deleteById(id);
     }

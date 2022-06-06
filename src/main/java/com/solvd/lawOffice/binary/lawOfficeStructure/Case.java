@@ -45,36 +45,32 @@ public class Case {
         this.court = court;
     }
 
-    public Judge getJudge () {
+    public Judge getJudge() {
         return judge;
     }
 
-    public void setJudge (Judge judge) {
+    public void setJudge(Judge judge) {
         this.judge = judge;
     }
 
     @Override
-    public String toString () {
-
+    public String toString() {
         return ("Case: \n\tId: " + id + "\n\tName: " + name + "\n\tDefendant: " +
                 defendant + "\n\tCourt: " + court.getName()
                 + "\n\tJudge: " + judge.getFullName());
     }
 
     @Override
-    public boolean equals (Object obj){
-
+    public boolean equals(Object obj) {
         if (obj == null) {
             return false;
         }
-
         if (this == obj) {
             return true;
         }
-
-        if ((obj instanceof Case) && ((Case)obj).getId() == this.id) {
+        if ((obj instanceof Case) && ((Case) obj).getId() == this.id) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }

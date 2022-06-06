@@ -22,7 +22,7 @@ public class JudgeDao extends AbstractDao implements IJudgeDao {
     private final static String DELETE_BY_ID = "DELETE from judge WHERE id_Judge = ?";
 
     @Override
-    public Judge getById (long id) {
+    public Judge getById(long id) {
         PreparedStatement pr = null;
         ResultSet rs = null;
         Connection con = getConnection();
@@ -32,8 +32,7 @@ public class JudgeDao extends AbstractDao implements IJudgeDao {
             pr.setLong(1, id);
             rs = pr.executeQuery();
             rs.next();
-
-            Judge judge = new Judge ();
+            Judge judge = new Judge();
             judge.setId(id);
             judge.setFirstName(rs.getString("first_name"));
             judge.setLastName(rs.getString("last_name"));
@@ -41,23 +40,20 @@ public class JudgeDao extends AbstractDao implements IJudgeDao {
             AddressDao addDao = new AddressDao();
             judge.setAddress(addDao.getById(rs.getLong("Address_id_Address")));
             return judge;
-
-        }catch(SQLException e) {
+        } catch (SQLException e) {
             LOGGER.error("ERROR: Could not return the judge", e);
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             returnConnection(con);
             closeResources(pr);
         }
-
     }
 
     @Override
-    public void save (Judge judge) {
+    public void save(Judge judge) {
         PreparedStatement pr = null;
         ResultSet rs = null;
         Connection con = getConnection();
-
         try {
             pr = con.prepareStatement(CREATE_NEW);
             pr.setLong(1, judge.getId());
@@ -67,21 +63,19 @@ public class JudgeDao extends AbstractDao implements IJudgeDao {
             pr.setLong(5, judge.getAddress().getId());
             pr.execute();
             LOGGER.info("Judge savec successfully.");
-
-        }catch (SQLException e){
+        } catch (SQLException e) {
             LOGGER.error("ERROR: Could not save the judge.", e);
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             returnConnection(con);
             closeResources(pr);
         }
     }
 
     @Override
-    public void update (Judge judge) {
+    public void update(Judge judge) {
         PreparedStatement pr = null;
         Connection con = getConnection();
-
         try {
             pr = con.prepareStatement(UPDATE);
             pr.setLong(5, judge.getId());
@@ -91,32 +85,29 @@ public class JudgeDao extends AbstractDao implements IJudgeDao {
             pr.setLong(4, judge.getAddress().getId());
             pr.execute();
             LOGGER.info("Judge updated successfully.");
-
-        }catch (SQLException e){
+        } catch (SQLException e) {
             LOGGER.error("ERROR: Could not update the judge.", e);
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             returnConnection(con);
             closeResources(pr);
         }
     }
 
     @Override
-    public void deleteById (long id) {
+    public void deleteById(long id) {
         PreparedStatement pr = null;
         ResultSet rs = null;
         Connection con = getConnection();
-
         try {
             pr = con.prepareStatement(DELETE_BY_ID);
             pr.setLong(1, id);
             pr.execute();
             LOGGER.info("Judge deleted successfully.");
-
-        }catch (SQLException e){
+        } catch (SQLException e) {
             LOGGER.error("ERROR: Could not delete the judge.", e);
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             returnConnection(con);
             closeResources(pr);
         }

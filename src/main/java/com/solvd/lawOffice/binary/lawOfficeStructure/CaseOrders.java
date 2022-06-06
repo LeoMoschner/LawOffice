@@ -34,32 +34,25 @@ public class CaseOrders {
     }
 
     @Override
-    public String toString () {
-
+    public String toString() {
         final String[] empStr = {("Employees: ")};
-
         employees.stream().forEach(emp -> {
             empStr[0] = (empStr[0] + emp.getFullName() + " ");
         });
-
-        return ("Case oders: \n\tId: " + id + "\n\tCase Id: " + aCase.getId()
-                + empStr);
+        return ("Case oders: \n\tId: " + id + "\n\tCase Id: " + aCase.getId() + empStr);
     }
 
     @Override
-    public boolean equals (Object obj){
-
+    public boolean equals(Object obj) {
         if (obj == null) {
             return false;
         }
-
         if (this == obj) {
             return true;
         }
-
-        if ((obj instanceof CaseOrders) && ((CaseOrders)obj).getId() == this.id) {
+        if ((obj instanceof CaseOrders) && ((CaseOrders) obj).getId() == this.id) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }

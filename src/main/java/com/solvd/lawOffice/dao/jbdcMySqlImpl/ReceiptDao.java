@@ -4,6 +4,7 @@ import com.solvd.lawOffice.binary.payment.Receipt;
 import com.solvd.lawOffice.dao.IReceiptDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import java.sql.*;
 
 
@@ -16,38 +17,32 @@ public class ReceiptDao extends AbstractDao implements IReceiptDao {
     private final static String UPDATE = "UPDATE receipts SET `from` = ?, `to` = ?, `amount` = ? WHERE `id_Receipts` = ?";
 
     @Override
-    public Receipt getById (long id){
-
-            PreparedStatement pr = null;
-            ResultSet rs = null;
-            Connection con = getConnection();
-            try {
-                pr = con.prepareStatement(SELECT_BY_ID);
-                pr.setLong(1, id);
-                rs = pr.executeQuery();
-                rs.next();
-
-                Receipt receipt = new Receipt();
-                receipt.setId(rs.getLong("id_Receipts"));
-                receipt.setFrom(rs.getString("from"));
-                receipt.setTo(rs.getString("to"));
-                receipt.setAmount(rs.getInt("amount"));
-                receipt.setDate(rs.getDate("date"));
-                return receipt;
-
-            }catch (SQLException e) {
-                LOGGER.error("ERROR: Could not return the receipt with id: " + id , e);
-                throw new RuntimeException();
-
-            }finally {
-                returnConnection(con);
-                closeResources(pr, rs);
-            }
+    public Receipt getById(long id) {
+        PreparedStatement pr = null;
+        ResultSet rs = null;
+        Connection con = getConnection();
+        try {
+            pr = con.prepareStatement(SELECT_BY_ID);
+            pr.setLong(1, id);
+            rs = pr.executeQuery();
+            rs.next();
+            Receipt receipt = new Receipt();
+            receipt.setId(rs.getLong("id_Receipts"));
+            receipt.setFrom(rs.getString("from"));
+            receipt.setTo(rs.getString("to"));
+            receipt.setAmount(rs.getInt("amount"));
+            receipt.setDate(rs.getDate("date"));
+            return receipt;
+        } catch (SQLException e) {
+            LOGGER.error("ERROR: Could not return the receipt with id: " + id, e);
+            throw new RuntimeException();
+        } finally {
+            returnConnection(con);
+            closeResources(pr, rs);
+        }
     }
-
     @Override
-    public void deleteById (long id) {
-
+    public void deleteById(long id) {
         PreparedStatement pr = null;
         Connection con = getConnection();
         try {
@@ -55,23 +50,20 @@ public class ReceiptDao extends AbstractDao implements IReceiptDao {
             pr.setLong(1, id);
             pr.execute();
             LOGGER.info("Receipt successfully deleted.");
-
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             LOGGER.error("ERROR: Could not delete the receipt.");
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             returnConnection(con);
             closeResources(pr);
         }
     }
 
     @Override
-    public void save (Receipt receipt) {
-
+    public void save(Receipt receipt) {
         PreparedStatement pr = null;
         Connection con = getConnection();
         try {
-
             pr = con.prepareStatement(CREATE_NEW);
             pr.setLong(1, receipt.getId());
             pr.setString(2, receipt.getFrom());
@@ -80,23 +72,20 @@ public class ReceiptDao extends AbstractDao implements IReceiptDao {
             //pr.setDate(5, receipt.getDate());
             pr.execute();
             LOGGER.info("New receipt added correctly to Data Base.");
-
-        }catch (SQLException e) {
-
-            LOGGER.error("ERROR: Could not add the receipt to Data Base." , e);
+        } catch (SQLException e) {
+            LOGGER.error("ERROR: Could not add the receipt to Data Base.", e);
             throw new RuntimeException();
-        }finally {
+        } finally {
             returnConnection(con);
             closeResources(pr);
         }
     }
 
     @Override
-    public void update (Receipt receipt) {
+    public void update(Receipt receipt) {
         PreparedStatement pr = null;
         Connection con = getConnection();
         try {
-
             pr = con.prepareStatement(UPDATE);
             pr.setLong(4, receipt.getId());
             pr.setString(1, receipt.getFrom());
@@ -105,9 +94,7 @@ public class ReceiptDao extends AbstractDao implements IReceiptDao {
             pr.execute();
             con.close();
             LOGGER.info("Update completed successfully.");
-
-        }catch (SQLException e) {
-
+        } catch (SQLException e) {
             LOGGER.error("ERROR: Could not perform the update", e);
             throw new RuntimeException(e);
         } finally {

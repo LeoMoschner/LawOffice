@@ -13,8 +13,8 @@ public class ClientServiceImpl implements ClientService {
     private final static Logger LOGGER = LogManager.getLogger(ClientServiceImpl.class);
 
     @Override
-    public Client getClient (long id) {
-        try (SqlSession session = SessionFactory.getInstance().getSession()){
+    public Client getClient(long id) {
+        try (SqlSession session = SessionFactory.getInstance().getSession()) {
             IClientDao cltDao = session.getMapper(IClientDao.class);
             Client outputClt = cltDao.getById(id);
             return outputClt;
@@ -31,7 +31,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void updateClient (Client clt) {
+    public void updateClient(Client clt) {
         try (SqlSession session = SessionFactory.getInstance().getSession()) {
             IClientDao cltDao = session.getMapper(IClientDao.class);
             cltDao.update(clt);
@@ -40,7 +40,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void deleteClient (long id) {
+    public void deleteClient(long id) {
         try (SqlSession session = SessionFactory.getInstance().getSession()) {
             IClientDao cltDao = session.getMapper(IClientDao.class);
             cltDao.deleteById(id);

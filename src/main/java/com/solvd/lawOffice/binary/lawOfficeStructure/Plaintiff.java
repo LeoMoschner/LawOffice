@@ -6,7 +6,6 @@ public class Plaintiff {
     private long clientId;
     private long caseId;
 
-
     public long getId() {
         return id;
     }
@@ -32,9 +31,28 @@ public class Plaintiff {
     }
 
     @Override
-    public String toString () {
-
+    public String toString() {
         return ("Plaintiff: \n\tId: " + id + "\n\tClient Id: " + clientId
                 + "\n\tCase Id: " + caseId);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
+        if ((obj instanceof Plaintiff) && ((Plaintiff) obj).getId() == this.id) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) this.id;
     }
 }

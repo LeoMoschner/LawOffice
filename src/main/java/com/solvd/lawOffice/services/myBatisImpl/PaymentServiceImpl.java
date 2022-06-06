@@ -15,8 +15,8 @@ public class PaymentServiceImpl implements PaymentService {
     private final static Logger LOGGER = LogManager.getLogger(PaymentServiceImpl.class);
 
     @Override
-    public List<Payment> getByClientId (long id) {
-        try (SqlSession session = SessionFactory.getInstance().getSession()){
+    public List<Payment> getByClientId(long id) {
+        try (SqlSession session = SessionFactory.getInstance().getSession()) {
             IPaymentDao payDao = session.getMapper(IPaymentDao.class);
             List<Payment> outputPayList = payDao.getById(id);
             return outputPayList;
@@ -33,7 +33,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public void updatePayment (List<Payment> payment) {
+    public void updatePayment(List<Payment> payment) {
         try (SqlSession session = SessionFactory.getInstance().getSession()) {
             IPaymentDao payDao = session.getMapper(IPaymentDao.class);
             payDao.update(payment);
@@ -42,7 +42,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public void deletePayment (long id) {
+    public void deletePayment(long id) {
         try (SqlSession session = SessionFactory.getInstance().getSession()) {
             IPaymentDao payDao = session.getMapper(IPaymentDao.class);
             payDao.deleteById(id);

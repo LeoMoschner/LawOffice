@@ -12,12 +12,10 @@ public class Payment {
     private Client client;
     private Employee employee;
 
-    // could combine client and employee to one single field person to pay?
-
     public Payment() {
     }
 
-    public long getId () {
+    public long getId() {
         return id;
     }
 
@@ -25,19 +23,19 @@ public class Payment {
         return amount;
     }
 
-    public DateUtils getDate () {
+    public DateUtils getDate() {
         return date;
     }
 
-    public void setId (long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public void setAmount (int amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
-    public void setDate (DateUtils date) {
+    public void setDate(DateUtils date) {
         this.date = date;
     }
 
@@ -66,33 +64,28 @@ public class Payment {
     }
 
     @Override
-    public String toString () {
-
+    public String toString() {
         String auxStr = "Payment: \n\tId: " + id + "\n\tAmount: $" + amount
                 + "\n\tDate: " + date + "\n\tReceipt Id: " + receipt.getId();
-
         if (client != null) {
             auxStr = auxStr + ("\n\tClient: " + client.getFullName());
-        }else {
+        } else {
             auxStr = auxStr + ("\n\tEmployee: " + employee.getFullName());
         }
         return auxStr;
     }
 
     @Override
-    public boolean equals (Object obj){
-
+    public boolean equals(Object obj) {
         if (obj == null) {
             return false;
         }
-
         if (this == obj) {
             return true;
         }
-
-        if ((obj instanceof Payment) && ((Payment)obj).getId() == this.id) {
+        if ((obj instanceof Payment) && ((Payment) obj).getId() == this.id) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }

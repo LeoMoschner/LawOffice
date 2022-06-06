@@ -7,7 +7,7 @@ import com.solvd.lawOffice.services.AddressService;
 public class AddressServiceImpl implements AddressService {
 
     @Override
-    public Address getAddress (long id) {
+    public Address getAddress(long id) {
         AddressDao adDao = new AddressDao();
         return adDao.getById(id);
     }
@@ -19,13 +19,13 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public void updateAddress (Address address) {
+    public void updateAddress(Address address) {
         AddressDao adDao = new AddressDao();
         adDao.update(address);
     }
 
     @Override
-    public void deleteAddress (long id) {
+    public void deleteAddress(long id) {
         AddressDao adDao = new AddressDao();
         adDao.deleteById(id);
     }

@@ -9,7 +9,7 @@ import java.util.List;
 public class PaymentServiceImpl implements PaymentService {
 
     @Override
-    public List<Payment> getByClientId (long clientId) {
+    public List<Payment> getByClientId(long clientId) {
         PaymentDao payDao = new PaymentDao();
         return payDao.getById(clientId);
     }

@@ -18,5 +18,45 @@
         }
       }
     }
+  },
+  {
+    "id": 30,
+    "firstName": "Chis",
+    "lastName": "Angel",
+    "email": "magic@gmail.com",
+    "address": {
+      "id": 89,
+      "postalCode": 2060,
+      "streetName": "Gumayusi",
+      "streetNumber": 1881,
+      "city": {
+        "id": 60,
+        "name": "Rosario",
+        "country": {
+          "id": 1,
+          "name": "Argentina"
+        }
+      }
+    }
+  },
+  {
+    "id": 60,
+    "firstName": "Fernando",
+    "lastName": "Alonso",
+    "email": "magicAlonsot@gmail.com",
+    "address": {
+      "id": 90,
+      "postalCode": 5640,
+      "streetName": "Amazing street",
+      "streetNumber": 4854,
+      "city": {
+        "id": 75,
+        "name": "Formosa",
+        "country": {
+          "id": 1,
+          "name": "Argentina"
+        }
+      }
+    }
   }
 ]

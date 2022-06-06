@@ -30,15 +30,14 @@ public class CaseDocument {
         this.desc = desc;
     }
 
-
     @Override
-    public String toString () {
+    public String toString() {
 
         return ("Case Document:" + "\n\tId: " + id + "\n\t Name: " + name + "\n\t Description: " + desc);
     }
 
     @Override
-    public boolean equals (Object obj){
+    public boolean equals(Object obj) {
 
         if (obj == null) {
             return false;
@@ -48,9 +47,9 @@ public class CaseDocument {
             return true;
         }
 
-        if ((obj instanceof CaseDocument) && ((CaseDocument)obj).getId() == this.id) {
+        if ((obj instanceof CaseDocument) && ((CaseDocument) obj).getId() == this.id) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }

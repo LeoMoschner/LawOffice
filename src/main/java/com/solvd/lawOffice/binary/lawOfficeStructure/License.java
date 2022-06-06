@@ -7,13 +7,13 @@ import java.util.Date;
 
 public class License {
 
-    @JsonProperty ("id")
+    @JsonProperty("id")
     private long id;
 
-    @JsonProperty ("ExpDate")
+    @JsonProperty("ExpDate")
     private Date expDate;
 
-    @JsonProperty ("Employee")
+    @JsonProperty("Employee")
     private Employee employee;
 
     public long getId() {
@@ -42,24 +42,20 @@ public class License {
 
     @Override
     public String toString() {
-
         return ("Lawyer license: \n\tId: " + id + "\n\tExpiration date: " + expDate);
     }
 
     @Override
-    public boolean equals (Object obj){
-
+    public boolean equals(Object obj) {
         if (obj == null) {
             return false;
         }
-
         if (this == obj) {
             return true;
         }
-
-        if ((obj instanceof License) && ((License)obj).getId() == this.id) {
+        if ((obj instanceof License) && ((License) obj).getId() == this.id) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }

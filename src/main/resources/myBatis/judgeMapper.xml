@@ -3,14 +3,13 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.solvd.lawOffice.dao.IJudgeDao">
     <resultMap type="com.solvd.lawOffice.binary.people.Judge"
-               id="JudgeResultMap" autoMapping="false" >
-        <id column="id" property= "id" />
-        <result column="first_name" property="firstName" />
-        <result column="last_name" property="lastName" />
-        <result column="email" property="email" />
-        <association property="address" resultMap="com.solvd.lawOffice.dao.IAddressDao.AddressResultMap" />
+               id="JudgeResultMap" autoMapping="false">
+        <id column="id" property="id"/>
+        <result column="first_name" property="firstName"/>
+        <result column="last_name" property="lastName"/>
+        <result column="email" property="email"/>
+        <association property="address" resultMap="com.solvd.lawOffice.dao.IAddressDao.AddressResultMap"/>
     </resultMap>
 </mapper>

@@ -1,6 +1,5 @@
 package com.solvd.lawOffice.binary.location;
 
-
 public class Country {
     private long id;
     private String name;
@@ -22,24 +21,21 @@ public class Country {
     }
 
     @Override
-    public String toString () {
+    public String toString() {
         return name;
     }
 
     @Override
-    public boolean equals (Object obj){
-
+    public boolean equals(Object obj) {
         if (obj == null) {
             return false;
         }
-
         if (this == obj) {
             return true;
         }
-
-        if ((obj instanceof Country) && ((Country)obj).getId() == this.id) {
+        if ((obj instanceof Country) && ((Country) obj).getId() == this.id) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }

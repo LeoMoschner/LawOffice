@@ -12,28 +12,22 @@ public class Judge extends Person {
         this.id = id;
     }
 
-
     @Override
-    public String toString () {
-
+    public String toString() {
         return ("Judge: \n\tId: " + id + super.toString());
-
     }
 
     @Override
-    public boolean equals (Object obj){
-
+    public boolean equals(Object obj) {
         if (obj == null) {
             return false;
         }
-
         if (this == obj) {
             return true;
         }
-
-        if ((obj instanceof Judge) && ((Judge)obj).getId() == this.id) {
+        if ((obj instanceof Judge) && ((Judge) obj).getId() == this.id) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }

@@ -3,15 +3,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.solvd.lawOffice.dao.IPaymentDao">
     <resultMap type="com.solvd.lawOffice.binary.payment.Payment"
-               id="PaymentResultMap" autoMapping="false" >
-        <id column="id_client" property= "id" />
+               id="PaymentResultMap" autoMapping="false">
+        <id column="id_client" property="id"/>
         <result column="id_Payments" property="id"/>
         <result column="amount" property="amount"/>
-        <association property="receipt" resultMap="com.solvd.lawOffice.dao.IReceiptDao.ReceiptResultMap" />
-        <association property="client" resultMap="com.solvd.lawOffice.dao.IClientDao.ClientResultMap" />
+        <association property="receipt" resultMap="com.solvd.lawOffice.dao.IReceiptDao.ReceiptResultMap"/>
+        <association property="client" resultMap="com.solvd.lawOffice.dao.IClientDao.ClientResultMap"/>
     </resultMap>
 
     <select id="getById" resultMap="PaymentResultMap">
@@ -26,12 +25,12 @@
     </select>
 
     <insert id="save" useGeneratedKeys="true" keyProperty="true">
-            INSERT INTO payments (`id_Payments`, `amount`) VALUES (#{id}, #{amount})
+        INSERT INTO payments (`id_Payments`, `amount`) VALUES (#{id}, #{amount})
     </insert>
     <update id="update" useGeneratedKeys="true" keyProperty="true">
-            UPDATE payments SET `amount` = #{amount} WHERE `id_Payments` = #{id}
+        UPDATE payments SET `amount` = #{amount} WHERE `id_Payments` = #{id}
     </update>
     <delete id="deleteById">
-            DELETE from payments WHERE id_Payments = #{id_Payments}
+        DELETE from payments WHERE id_Payments = #{id_Payments}
     </delete>
 </mapper>

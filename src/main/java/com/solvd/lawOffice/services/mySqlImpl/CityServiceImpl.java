@@ -7,7 +7,7 @@ import com.solvd.lawOffice.services.CityService;
 public class CityServiceImpl implements CityService {
 
     @Override
-    public City getCity (long id) {
+    public City getCity(long id) {
         CityDao citDao = new CityDao();
         return citDao.getById(id);
     }

@@ -16,21 +16,17 @@ public class Lawyer extends Employee {
 
     @Override
     public String toString () {
-
         return ("Lawyer: "  + super.toString() + "\n\tLicense:" + license);
     }
 
     @Override
     public boolean equals (Object obj){
-
         if (obj == null) {
             return false;
         }
-
         if (this == obj) {
             return true;
         }
-
         if ((obj instanceof Lawyer) && ((Lawyer)obj).getId() == super.getId()) {
             return true;
         }else {

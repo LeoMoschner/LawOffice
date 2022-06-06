@@ -1,4 +1,5 @@
 package com.solvd.lawOffice.binary.payment;
+
 import com.solvd.lawOffice.services.jaxb.DateAdapter;
 
 
@@ -22,7 +23,7 @@ public class Receipt {
     @XmlElement
     private int amount;
 
-    @XmlElement (name = "date")
+    @XmlElement(name = "date")
     @XmlJavaTypeAdapter(DateAdapter.class)
     private Date date;
 
@@ -73,16 +74,16 @@ public class Receipt {
     }
 
     @Override
-    public boolean equals (Object obj){
+    public boolean equals(Object obj) {
         if (obj == null) {
             return false;
         }
         if (this == obj) {
             return true;
         }
-        if ((obj instanceof Receipt) && ((Receipt)obj).getId() == this.id) {
+        if ((obj instanceof Receipt) && ((Receipt) obj).getId() == this.id) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }

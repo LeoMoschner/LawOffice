@@ -15,28 +15,27 @@ public class JaxbImpl {
     private final static Logger LOGGER = LogManager.getLogger(JaxbImpl.class);
 
     public Receipt unmarshall(String path) {
-        File dataFile = new File (path);
+        File dataFile = new File(path);
         JAXBContext jaxbCon;
         try {
             jaxbCon = JAXBContext.newInstance(Receipt.class);
             Unmarshaller unm = jaxbCon.createUnmarshaller();
             return (Receipt) unm.unmarshal(dataFile);
-        }catch (JAXBException e) {
+        } catch (JAXBException e) {
             LOGGER.error("ERROR: Could not complete the Jaxb operation", e);
             throw new RuntimeException(e);
         }
     }
 
-    public void marshal (Receipt receipt, String resultPath) {
-        File result = new File (resultPath);
+    public void marshal(Receipt receipt, String resultPath) {
+        File result = new File(resultPath);
         JAXBContext jaxbCon;
         try {
             jaxbCon = JAXBContext.newInstance(this.getClass());
             Marshaller marsh = jaxbCon.createMarshaller();
             marsh.marshal(receipt, result);
-        }catch (JAXBException e) {
-
-            LOGGER.error ("ERROR: Could not complete the Jaxb operation", e);
+        } catch (JAXBException e) {
+            LOGGER.error("ERROR: Could not complete the Jaxb operation", e);
             throw new RuntimeException(e);
         }
     }

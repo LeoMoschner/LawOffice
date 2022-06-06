@@ -1,4 +1,5 @@
 package com.solvd.lawOffice.services.myBatisImpl;
+
 import com.solvd.lawOffice.binary.location.Address;
 import com.solvd.lawOffice.dao.IAddressDao;
 import com.solvd.lawOffice.services.AddressService;
@@ -12,8 +13,8 @@ public class AddressServiceImpl implements AddressService {
     private final static Logger LOGGER = LogManager.getLogger(AddressServiceImpl.class);
 
     @Override
-    public Address getAddress (long id) {
-        try (SqlSession session = SessionFactory.getInstance().getSession()){
+    public Address getAddress(long id) {
+        try (SqlSession session = SessionFactory.getInstance().getSession()) {
             IAddressDao adDao = session.getMapper(IAddressDao.class);
             Address outputAd = adDao.getById(id);
             return outputAd;
@@ -30,7 +31,7 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public void updateAddress (Address address) {
+    public void updateAddress(Address address) {
         try (SqlSession session = SessionFactory.getInstance().getSession()) {
             IAddressDao adDao = session.getMapper(IAddressDao.class);
             adDao.update(address);
@@ -39,7 +40,7 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public void deleteAddress (long id) {
+    public void deleteAddress(long id) {
         try (SqlSession session = SessionFactory.getInstance().getSession()) {
             IAddressDao adDao = session.getMapper(IAddressDao.class);
             adDao.deleteById(id);

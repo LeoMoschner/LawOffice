@@ -17,9 +17,8 @@ public class SessionFactory {
     private final static String MY_BATIS_CFG_PATH = "myBatis/mybatis-config.xml";
     private SqlSession session;
 
-    private SessionFactory () {
-
-        try (Reader rd = Resources.getResourceAsReader(MY_BATIS_CFG_PATH)){
+    private SessionFactory() {
+        try (Reader rd = Resources.getResourceAsReader(MY_BATIS_CFG_PATH)) {
             session = new SqlSessionFactoryBuilder().build(rd).openSession();
         } catch (IOException e) {
             LOGGER.error("ERROR: There was an error with my Batis.", e);

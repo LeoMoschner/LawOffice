@@ -17,7 +17,7 @@ public interface CaseService {
 
     }
 
-    default void deleteCase (long id) {
+    default void deleteCase(long id) {
 
     }
 }

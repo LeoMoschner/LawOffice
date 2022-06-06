@@ -1,4 +1,5 @@
 package com.solvd.lawOffice.services.jaxb;
+
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.text.SimpleDateFormat;
 import java.util.Date;

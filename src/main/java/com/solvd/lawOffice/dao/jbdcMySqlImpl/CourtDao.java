@@ -27,7 +27,6 @@ public class CourtDao extends AbstractDao implements ICourtDao {
         PreparedStatement pr = null;
         ResultSet rs = null;
         Connection con = getConnection();
-
         try {
             pr = con.prepareStatement(SELECT_BY_ID);
             pr.setLong(1, id);
@@ -39,21 +38,19 @@ public class CourtDao extends AbstractDao implements ICourtDao {
             AddressDao addDao = new AddressDao();
             court.setAddress(addDao.getById(rs.getLong("Address_id_Address")));
             return court;
-
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             LOGGER.error("ERROR: Could not return the court", e);
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             returnConnection(con);
             closeResources(pr);
         }
     }
 
     @Override
-    public void save (Court court) {
+    public void save(Court court) {
         PreparedStatement pr = null;
         Connection con = getConnection();
-
         try {
             pr = con.prepareStatement(CREATE_NEW);
             pr.setLong(1, court.getId());
@@ -61,21 +58,19 @@ public class CourtDao extends AbstractDao implements ICourtDao {
             pr.setLong(3, court.getAddress().getId());
             pr.execute();
             LOGGER.info("Court saved successfully.");
-
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             LOGGER.error("ERROR: Could not save the court.");
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             returnConnection(con);
             closeResources(pr);
         }
     }
 
     @Override
-    public void update(Court court){
+    public void update(Court court) {
         PreparedStatement pr = null;
         Connection con = getConnection();
-
         try {
             pr = con.prepareStatement(UPDATE);
             pr.setLong(3, court.getId());
@@ -83,18 +78,17 @@ public class CourtDao extends AbstractDao implements ICourtDao {
             pr.setLong(2, court.getAddress().getId());
             pr.execute();
             LOGGER.info("Court updated successfully.");
-
-        }catch (SQLException e){
-            LOGGER.error("ERROR: Could not update the court" , e);
+        } catch (SQLException e) {
+            LOGGER.error("ERROR: Could not update the court", e);
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             returnConnection(con);
             closeResources(pr);
         }
     }
 
     @Override
-    public void deleteById (long id) {
+    public void deleteById(long id) {
         PreparedStatement pr = null;
         Connection con = getConnection();
         try {
@@ -102,11 +96,10 @@ public class CourtDao extends AbstractDao implements ICourtDao {
             pr.setLong(1, id);
             pr.execute();
             LOGGER.info("Court deleted successfully.");
-
-        }catch (SQLException e){
+        } catch (SQLException e) {
             LOGGER.error("ERROR: Could not delete the court.");
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             returnConnection(con);
             closeResources(pr);
         }

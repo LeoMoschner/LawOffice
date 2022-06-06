@@ -1,5 +1,4 @@
 -- Countries
-
 	INSERT INTO country (`name`) VALUES ('Argentina');
 	INSERT INTO country (`name`) VALUES ('Brazil');
 	INSERT INTO country (`name`) VALUES ('Russia');
@@ -16,7 +15,6 @@
 	INSERT INTO country (`name`) VALUES ('France');
 
 -- Cities
-
 	INSERT INTO cities (`name`, `Country_id_Country`) VALUES ('Buenos Aires', '1');
 	INSERT INTO cities (`name`, `Country_id_Country`) VALUES ('Resistencia', '1');
     INSERT INTO cities (`name`, `Country_id_Country`) VALUES ('Cordoba', '1');
@@ -52,7 +50,6 @@
 	
 	
 -- Addresses
-
 	INSERT INTO address (`postal_code`, `street_name`, `street_number`, `Cities_id_Cities`) VALUES ('8523', 'Random street', '5423', '12');
     INSERT INTO address (`postal_code`, `street_name`, `street_number`, `Cities_id_Cities`) VALUES ('2563', 'Palangana', '6452', '5');
     INSERT INTO address (`postal_code`, `street_name`, `street_number`, `Cities_id_Cities`) VALUES ('3500', 'Mante', '135', '2');
@@ -122,7 +119,6 @@
 
     
 -- Clients
-
     INSERT INTO clients (`first_name`, `last_name`, `email`, `Address_id_Address`) VALUES ('Lionel', 'Messi', 'leomessi@gmail.com', '3');
     INSERT INTO clients (`first_name`, `last_name`, `email`, `Address_id_Address`) VALUES ('Cristiano', 'Ronaldo', 'cr7@gmail.com', '10');
     INSERT INTO clients (`first_name`, `last_name`, `email`, `Address_id_Address`) VALUES ('Rodrigo', 'De Paul', 'messifan@gmail.com', '14');
@@ -141,7 +137,6 @@
 
 
 -- Employees
-
     INSERT INTO employees (`first_name`, `last_name`, `email`, `salary`, `Address_id_Address`) VALUES ('Saul', 'Goodman', 'bettercallsaul@gmail.com', '2135', '2');
     INSERT INTO employees (`first_name`, `last_name`, `email`, `salary`, `Address_id_Address`) VALUES ('Saul', 'Menem', 'bettercallsaul@gmail.com', '4652', '3');
     INSERT INTO employees (`first_name`, `last_name`, `email`, `salary`, `Address_id_Address`) VALUES ('Charles', 'Leclerc', 'bettercallsaul@gmail.com', '1328', '4');
@@ -159,7 +154,6 @@
     INSERT INTO employees (`first_name`, `last_name`, `email`, `salary`, `Address_id_Address`) VALUES ('Lara', 'Ibanez', 'bettercallsaul@gmail.com', '8423', '16');
 
 -- Lawyer Licenses
-
     INSERT INTO lawyer_licenses (`expiration_date`, `id_Employees`) VALUES ('2023-03-02', '1');
     INSERT INTO lawyer_licenses (`expiration_date`, `id_Employees`) VALUES ('2024-02-02', '2');
     INSERT INTO lawyer_licenses (`expiration_date`, `id_Employees`) VALUES ('2025-01-02', '3');
@@ -172,7 +166,6 @@
     INSERT INTO lawyer_licenses (`expiration_date`, `id_Employees`) VALUES ('2027-03-02', '10');
 
 -- Judges
-
     INSERT INTO judge (`first_name`, `last_name`, `email`, `Address_id_Address`) VALUES ('John', 'Telme', 'johnytelm@gmail.com', '23');
     INSERT INTO judge (`first_name`, `last_name`, `email`, `Address_id_Address`) VALUES ('Mamu', 'Suarez', 'm4mul4@gmail.com', '25');
     INSERT INTO judge (`first_name`, `last_name`, `email`, `Address_id_Address`) VALUES ('Ronnie', 'Coleman', 'b0d1building@gmail.com', '27');
@@ -185,7 +178,6 @@
     INSERT INTO courts (`name`, `Address_id_Address`) VALUES ('Demacia', '18');
 
 -- Courts Schedule
-
     INSERT INTO court_schedules (`id_Courts`, `id_Judge`, `dateAndTime`) VALUES ('1', '5', '2022-06-18');
     INSERT INTO court_schedules (`id_Courts`, `id_Judge`, `dateAndTime`) VALUES ('2', '4', '2022-07-18');
     INSERT INTO court_schedules (`id_Courts`, `id_Judge`, `dateAndTime`) VALUES ('3', '3', '2022-06-23');
@@ -198,7 +190,6 @@
     INSERT INTO court_schedules (`id_Courts`, `id_Judge`, `dateAndTime`) VALUES ('1', '5', '2023-02-20');
 
 -- Cases
-
     INSERT INTO cases (`name`, `defendant`, `Courts_id_Courts`, `Judge_id_Judge`) VALUES ('Bank Robery', 'Marcos Rojo', '1', '1');
     INSERT INTO cases (`name`, `defendant`, `Courts_id_Courts`, `Judge_id_Judge`) VALUES ('Assault', 'Mark Welberg', '2', '4');
     INSERT INTO cases (`name`, `defendant`, `Courts_id_Courts`, `Judge_id_Judge`) VALUES ('Car Crash', 'Carlos Mendez', '3', '2');
@@ -211,7 +202,6 @@
     INSERT INTO cases (`name`, `defendant`, `Courts_id_Courts`, `Judge_id_Judge`) VALUES ('Store Assault', 'Peter Andoumel', '2', '5');
 
 -- Cases Orders
-
     INSERT INTO case_orders (`Cases_id_Cases`, `Employees_id_Employees`) VALUES ('1', '1');
     INSERT INTO case_orders (`Cases_id_Cases`, `Employees_id_Employees`) VALUES ('1', '11');
     INSERT INTO case_orders (`Cases_id_Cases`, `Employees_id_Employees`) VALUES ('2', '2');
@@ -234,7 +224,6 @@
     INSERT INTO case_orders (`Cases_id_Cases`, `Employees_id_Employees`) VALUES ('10', '14');
 
 -- Cases Documents
-
     INSERT INTO case_docs (`name`, `description`, `Cases_id_Cases`) VALUES ('Proofs 1', 'camera record', '1');
     INSERT INTO case_docs (`name`, `description`, `Cases_id_Cases`) VALUES ('Proofs 2', 'criminal pictures', '1');
     INSERT INTO case_docs (`name`, `description`, `Cases_id_Cases`) VALUES ('Proofs 3', 'criminal interview', '1');
@@ -267,7 +256,6 @@
     INSERT INTO case_docs (`name`, `description`, `Cases_id_Cases`) VALUES ('Proofs 3', 'store employee statement', '10');
 
 -- Jury Members
-
     INSERT INTO jury_members (`first_name`, `last_name`, `email`, `Address_id_Address`, `Cases_id_Cases`) VALUES ('Antonio', 'Banderas', 'antony@hotmail.com', '34', '1');
     INSERT INTO jury_members (`first_name`, `last_name`, `email`, `Address_id_Address`, `Cases_id_Cases`) VALUES ('Marcos', 'Rulken', 'Marki@hotmail.com', '35', '1');
     INSERT INTO jury_members (`first_name`, `last_name`, `email`, `Address_id_Address`, `Cases_id_Cases`) VALUES ('Mateo', 'Barrol', 'Mates@hotmail.com', '36', '1');
@@ -310,7 +298,6 @@
     INSERT INTO jury_members (`first_name`, `last_name`, `email`, `Address_id_Address`, `Cases_id_Cases`) VALUES ('Teo', 'Moschner', 'teod0r0@hotmail.com', '6', '10');
 
 -- Receipts
-
     INSERT INTO receipts (`from`, `to`, `amount`, `date`) VALUES ('Lionel Messi', 'Law office', '1234', '2022-05-15');
     INSERT INTO receipts (`from`, `to`, `amount`, `date`) VALUES ('Cristiano Ronaldo', 'Law office', '4523', '2021-10-17');
     INSERT INTO receipts (`from`, `to`, `amount`, `date`) VALUES ('Rodrigo De Paul', 'Law office', '7823', '2021-11-05');
@@ -323,7 +310,6 @@
     INSERT INTO receipts (`from`, `to`, `amount`, `date`) VALUES ('Law Office', 'Mel Gibson', '1235', '2022-04-22');
 
 -- Payments
-
     INSERT INTO payments (`amount`, `date`, `Receipts_id_Receipts`, `Clients_id_clients`) VALUES ('1234', '2022-05-15', '9', '1');
     INSERT INTO payments (`amount`, `date`, `Receipts_id_Receipts`, `Clients_id_clients`) VALUES ('4523', '2021-10-17', '10', '2');
     INSERT INTO payments (`amount`, `date`, `Receipts_id_Receipts`, `Clients_id_clients`) VALUES ('7823', '2021-11-05', '11', '3');
@@ -336,7 +322,6 @@
     INSERT INTO payments (`amount`, `date`, `Receipts_id_Receipts`, `id_Employees`) VALUES ('1235', '2022-04-22', '18', '15');
 
 -- Plaintiffs
-
     INSERT INTO plaintiffies (`Clients_id_clients`, `Cases_id_Cases`) VALUES ('1', '1');
     INSERT INTO plaintiffies (`Clients_id_clients`, `Cases_id_Cases`) VALUES ('3', '1');
     INSERT INTO plaintiffies (`Clients_id_clients`, `Cases_id_Cases`) VALUES ('5', '1');

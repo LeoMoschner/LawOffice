@@ -13,8 +13,8 @@ public class CaseServiceImpl implements CaseService {
     private final static Logger LOGGER = LogManager.getLogger(CaseServiceImpl.class);
 
     @Override
-    public Case getCase (long id) {
-        try (SqlSession session = SessionFactory.getInstance().getSession()){
+    public Case getCase(long id) {
+        try (SqlSession session = SessionFactory.getInstance().getSession()) {
             ICaseDao caseDao = session.getMapper(ICaseDao.class);
             Case outputCase = caseDao.getById(id);
             return outputCase;
@@ -31,7 +31,7 @@ public class CaseServiceImpl implements CaseService {
     }
 
     @Override
-    public void updateCase (Case cas) {
+    public void updateCase(Case cas) {
         try (SqlSession session = SessionFactory.getInstance().getSession()) {
             ICaseDao casDao = session.getMapper(ICaseDao.class);
             casDao.update(cas);
@@ -40,7 +40,7 @@ public class CaseServiceImpl implements CaseService {
     }
 
     @Override
-    public void deleteCase (long id) {
+    public void deleteCase(long id) {
         try (SqlSession session = SessionFactory.getInstance().getSession()) {
             ICaseDao casDao = session.getMapper(ICaseDao.class);
             casDao.deleteById(id);

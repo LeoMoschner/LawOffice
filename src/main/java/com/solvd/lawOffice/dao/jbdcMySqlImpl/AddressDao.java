@@ -4,7 +4,6 @@ import com.solvd.lawOffice.binary.location.Address;
 import com.solvd.lawOffice.dao.IAddressDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,20 +20,16 @@ public class AddressDao extends AbstractDao implements IAddressDao {
             " WHERE `id_Address` = ?";
     private final static String DELETE_BY_ID = "DELETE from address WHERE id_Address = ?";
 
-
     @Override
     public Address getById (long id) {
-
         PreparedStatement pr = null;
         ResultSet rs = null;
         Connection con = getConnection();
-
         try {
             pr = con.prepareStatement(SELECT_BY_ID);
             pr.setLong(1, id);
             rs = pr.executeQuery();
             rs.next();
-
             Address ad = new Address();
             ad.setId(rs.getLong("id_Address"));
             ad.setPostalCode(rs.getInt("postal_code"));
@@ -43,7 +38,6 @@ public class AddressDao extends AbstractDao implements IAddressDao {
             CityDao citDao = new CityDao();
             ad.setCity(citDao.getById(rs.getLong("Cities_id_Cities")));
             return ad;
-
         }catch (SQLException e) {
             LOGGER.error("ERROR: Could not return address with id: " + id, e);
             throw  new RuntimeException(e);
@@ -55,11 +49,9 @@ public class AddressDao extends AbstractDao implements IAddressDao {
 
     @Override
     public void save (Address address) {
-
         PreparedStatement pr = null;
         Connection con = getConnection();
         try {
-
             pr = con.prepareStatement(CREATE_NEW);
             pr.setLong(1, address.getId());
             pr.setInt(2, address.getPostalCode());
@@ -68,7 +60,6 @@ public class AddressDao extends AbstractDao implements IAddressDao {
             pr.setLong(5, address.getCity().getId());
             pr.execute();
             LOGGER.info("Address saved successfully.");
-
         }catch (SQLException e) {
             LOGGER.error("ERROR: could not save the address", e);
             throw new RuntimeException(e);
@@ -80,7 +71,6 @@ public class AddressDao extends AbstractDao implements IAddressDao {
 
     @Override
     public void update (Address address) {
-
         PreparedStatement pr = null;
         Connection con = getConnection();
         try {
@@ -92,7 +82,6 @@ public class AddressDao extends AbstractDao implements IAddressDao {
             pr.setLong(4, address.getCity().getId());
             pr.execute();
             LOGGER.info("Address update successfully.");
-
         }catch (SQLException e){
             LOGGER.error("ERROR: Could not update the address.", e);
             throw new RuntimeException(e);
@@ -104,11 +93,9 @@ public class AddressDao extends AbstractDao implements IAddressDao {
 
     @Override
     public void deleteById (long id) {
-
         PreparedStatement pr = null;
         Connection con = getConnection();
         try {
-
             pr = con.prepareStatement(DELETE_BY_ID);
             pr.setLong(1, id);
             pr.execute();

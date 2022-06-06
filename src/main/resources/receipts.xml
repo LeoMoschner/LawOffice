@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-
-<receipt id = "1">
-        <from>Lionel Messi</from>
-        <to>Law Office</to>
-        <amount>2532</amount>
-        <date>05/08/2020</date>
+<receipt id="1">
+    <from>Lionel Messi</from>
+    <to>Law Office</to>
+    <amount>2532</amount>
+    <date>05/08/2020</date>
 </receipt>

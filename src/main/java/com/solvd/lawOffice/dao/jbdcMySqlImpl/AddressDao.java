@@ -2,6 +2,7 @@ package com.solvd.lawOffice.dao.jbdcMySqlImpl;
 
 import com.solvd.lawOffice.binary.location.Address;
 import com.solvd.lawOffice.dao.IAddressDao;
+import com.solvd.lawOffice.utils.exceptions.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.sql.Connection;
@@ -40,7 +41,7 @@ public class AddressDao extends AbstractDao implements IAddressDao {
             return ad;
         }catch (SQLException e) {
             LOGGER.error("ERROR: Could not return address with id: " + id, e);
-            throw  new RuntimeException(e);
+            throw new DaoException(e);
         }finally {
             returnConnection(con);
             closeResources(pr, rs);
@@ -62,7 +63,7 @@ public class AddressDao extends AbstractDao implements IAddressDao {
             LOGGER.info("Address saved successfully.");
         }catch (SQLException e) {
             LOGGER.error("ERROR: could not save the address", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         }finally {
             returnConnection(con);
             closeResources(pr);
@@ -84,7 +85,7 @@ public class AddressDao extends AbstractDao implements IAddressDao {
             LOGGER.info("Address update successfully.");
         }catch (SQLException e){
             LOGGER.error("ERROR: Could not update the address.", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         }finally {
             returnConnection(con);
             closeResources(pr);
@@ -103,7 +104,7 @@ public class AddressDao extends AbstractDao implements IAddressDao {
 
         }catch (SQLException e) {
             LOGGER.error("ERROR: Could not delete the Address", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         }finally {
             returnConnection(con);
             closeResources(pr);

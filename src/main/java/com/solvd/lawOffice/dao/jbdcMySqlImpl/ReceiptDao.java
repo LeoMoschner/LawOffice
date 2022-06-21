@@ -2,6 +2,7 @@ package com.solvd.lawOffice.dao.jbdcMySqlImpl;
 
 import com.solvd.lawOffice.binary.payment.Receipt;
 import com.solvd.lawOffice.dao.IReceiptDao;
+import com.solvd.lawOffice.utils.exceptions.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -35,7 +36,7 @@ public class ReceiptDao extends AbstractDao implements IReceiptDao {
             return receipt;
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not return the receipt with id: " + id, e);
-            throw new RuntimeException();
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr, rs);
@@ -52,7 +53,7 @@ public class ReceiptDao extends AbstractDao implements IReceiptDao {
             LOGGER.info("Receipt successfully deleted.");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not delete the receipt.");
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
@@ -74,7 +75,7 @@ public class ReceiptDao extends AbstractDao implements IReceiptDao {
             LOGGER.info("New receipt added correctly to Data Base.");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not add the receipt to Data Base.", e);
-            throw new RuntimeException();
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
@@ -96,7 +97,7 @@ public class ReceiptDao extends AbstractDao implements IReceiptDao {
             LOGGER.info("Update completed successfully.");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not perform the update", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);

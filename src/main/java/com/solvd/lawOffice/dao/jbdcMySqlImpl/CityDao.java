@@ -2,6 +2,7 @@ package com.solvd.lawOffice.dao.jbdcMySqlImpl;
 
 import com.solvd.lawOffice.binary.location.City;
 import com.solvd.lawOffice.dao.ICityDao;
+import com.solvd.lawOffice.utils.exceptions.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -36,7 +37,7 @@ public class CityDao extends AbstractDao implements ICityDao {
             return cit;
         }catch (SQLException e) {
             LOGGER.error ("ERROR: Could not return city with id: " + id, e);
-            throw new RuntimeException();
+            throw new DaoException(e);
         }finally {
             returnConnection(con);
             closeResources(pr, rs);
@@ -56,7 +57,7 @@ public class CityDao extends AbstractDao implements ICityDao {
             LOGGER.info("City saved successfully.");
         }catch (SQLException e) {
             LOGGER.error("ERROR: Could not save the city", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         }finally {
             returnConnection(con);
             closeResources(pr);
@@ -76,7 +77,7 @@ public class CityDao extends AbstractDao implements ICityDao {
             LOGGER.info ("City updated successfully");
         }catch (SQLException e) {
             LOGGER.error("ERROR: Could not update the city.");
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         }finally {
             returnConnection(con);
             closeResources(pr);
@@ -94,7 +95,7 @@ public class CityDao extends AbstractDao implements ICityDao {
             LOGGER.info("City deleted successfully.");
         }catch (SQLException e) {
             LOGGER.error("ERROR: Could not delete the city.", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         }finally {
             returnConnection(con);
             closeResources(pr);

@@ -1,6 +1,7 @@
 package com.solvd.lawOffice.dao.jbdcMySqlImpl;
 
 import com.solvd.lawOffice.utils.ConnectionPool;
+import com.solvd.lawOffice.utils.exceptions.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.sql.Connection;
@@ -32,7 +33,7 @@ public abstract class AbstractDao {
             }
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not close resources properly", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         }
     }
 
@@ -43,7 +44,7 @@ public abstract class AbstractDao {
             }
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not close resources properly", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         }
     }
 }

@@ -3,6 +3,7 @@ package com.solvd.lawOffice.dao.jbdcMySqlImpl;
 
 import com.solvd.lawOffice.binary.lawOfficeStructure.Court;
 import com.solvd.lawOffice.dao.ICourtDao;
+import com.solvd.lawOffice.utils.exceptions.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -40,7 +41,7 @@ public class CourtDao extends AbstractDao implements ICourtDao {
             return court;
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not return the court", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
@@ -60,7 +61,7 @@ public class CourtDao extends AbstractDao implements ICourtDao {
             LOGGER.info("Court saved successfully.");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not save the court.");
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
@@ -80,7 +81,7 @@ public class CourtDao extends AbstractDao implements ICourtDao {
             LOGGER.info("Court updated successfully.");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not update the court", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
@@ -98,7 +99,7 @@ public class CourtDao extends AbstractDao implements ICourtDao {
             LOGGER.info("Court deleted successfully.");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not delete the court.");
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);

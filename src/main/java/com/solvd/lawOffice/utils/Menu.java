@@ -45,7 +45,7 @@ public class Menu {
 
     private String checkSelections(String inputSelection) {
         if (inputSelection.isEmpty()) {
-            throw new RuntimeException();   //null
+            throw new NullPointerException();   //null
         } else {
             if (inputSelection.matches("[+-]?\\d*")) {
 

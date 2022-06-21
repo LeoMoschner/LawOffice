@@ -2,6 +2,7 @@ package com.solvd.lawOffice.dao.jbdcMySqlImpl;
 
 import com.solvd.lawOffice.binary.payment.Payment;
 import com.solvd.lawOffice.dao.IPaymentDao;
+import com.solvd.lawOffice.utils.exceptions.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -41,7 +42,7 @@ public class PaymentDao extends AbstractDao implements IPaymentDao {
             return payList;
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not return the payments list", e);
-            throw new RuntimeException();
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr, rs);

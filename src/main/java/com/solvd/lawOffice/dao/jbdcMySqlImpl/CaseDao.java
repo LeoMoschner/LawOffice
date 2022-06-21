@@ -2,6 +2,7 @@ package com.solvd.lawOffice.dao.jbdcMySqlImpl;
 
 import com.solvd.lawOffice.binary.lawOfficeStructure.Case;
 import com.solvd.lawOffice.dao.ICaseDao;
+import com.solvd.lawOffice.utils.exceptions.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -42,7 +43,7 @@ public class CaseDao extends AbstractDao implements ICaseDao {
             return cas;
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not return the case", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr, rs);
@@ -64,7 +65,7 @@ public class CaseDao extends AbstractDao implements ICaseDao {
             LOGGER.info("Cases savec successfully.");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not save the case", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
@@ -85,7 +86,7 @@ public class CaseDao extends AbstractDao implements ICaseDao {
             LOGGER.info("Case updated successfully");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not update the case.", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
@@ -103,7 +104,7 @@ public class CaseDao extends AbstractDao implements ICaseDao {
             LOGGER.info("Case deleted successfully");
         } catch (SQLException e) {
             LOGGER.error("Could not delete the case.", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);

@@ -2,6 +2,7 @@ package com.solvd.lawOffice.dao.jbdcMySqlImpl;
 
 import com.solvd.lawOffice.binary.lawOfficeStructure.Plaintiff;
 import com.solvd.lawOffice.dao.IPlaintiffDao;
+import com.solvd.lawOffice.utils.exceptions.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -37,7 +38,7 @@ public class PlaintiffDao extends AbstractDao implements IPlaintiffDao {
             return pltfList;
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not return plaintiffs list");
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr, rs);

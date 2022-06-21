@@ -2,6 +2,7 @@ package com.solvd.lawOffice.dao.jbdcMySqlImpl;
 
 import com.solvd.lawOffice.binary.people.Judge;
 import com.solvd.lawOffice.dao.IJudgeDao;
+import com.solvd.lawOffice.utils.exceptions.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -42,7 +43,7 @@ public class JudgeDao extends AbstractDao implements IJudgeDao {
             return judge;
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not return the judge", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
@@ -65,7 +66,7 @@ public class JudgeDao extends AbstractDao implements IJudgeDao {
             LOGGER.info("Judge savec successfully.");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not save the judge.", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
@@ -87,7 +88,7 @@ public class JudgeDao extends AbstractDao implements IJudgeDao {
             LOGGER.info("Judge updated successfully.");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not update the judge.", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
@@ -106,7 +107,7 @@ public class JudgeDao extends AbstractDao implements IJudgeDao {
             LOGGER.info("Judge deleted successfully.");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not delete the judge.", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);

@@ -2,6 +2,7 @@ package com.solvd.lawOffice.dao.jbdcMySqlImpl;
 
 import com.solvd.lawOffice.binary.people.Client;
 import com.solvd.lawOffice.dao.IClientDao;
+import com.solvd.lawOffice.utils.exceptions.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -42,7 +43,7 @@ public class ClientDao extends AbstractDao implements IClientDao {
             return cl;
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not return client with id: " + id, e);
-            throw new RuntimeException();
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr, rs);
@@ -64,7 +65,7 @@ public class ClientDao extends AbstractDao implements IClientDao {
             LOGGER.info("New Client added correctly to Data Base. \n\t" + client);
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not save the client", e);
-            throw new RuntimeException();
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
@@ -86,7 +87,7 @@ public class ClientDao extends AbstractDao implements IClientDao {
             LOGGER.info("Client updated successfully.");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not update the client.");
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
@@ -105,7 +106,7 @@ public class ClientDao extends AbstractDao implements IClientDao {
 
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not delete the client.", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);

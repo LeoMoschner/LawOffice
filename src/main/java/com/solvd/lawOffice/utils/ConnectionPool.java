@@ -1,5 +1,6 @@
 package com.solvd.lawOffice.utils;
 
+import com.solvd.lawOffice.utils.exceptions.ConnectionPoolException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.util.PropertiesUtil;
@@ -40,12 +41,12 @@ public class ConnectionPool {
                 return con;
             } catch (SQLException e) {
                 LOGGER.error("ERROR: Could not establish the connection.", e);
-                throw new RuntimeException(e);
+                throw new ConnectionPoolException(e);
             }
         } else {
             LOGGER.error("ERROR: Could not create a new connection." +
                     "There are to many active connections");
-            throw new RuntimeException();
+            throw new ConnectionPoolException();
         }
     }
 
@@ -55,7 +56,7 @@ public class ConnectionPool {
                 return connections.take();
             } catch (InterruptedException e) {
                 LOGGER.error("ERROR: Could not take a connection from connection pool.", e);
-                throw new RuntimeException(e);
+                throw new ConnectionPoolException(e);
             }
         } else {
             return startConnection();

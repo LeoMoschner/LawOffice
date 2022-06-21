@@ -2,6 +2,7 @@ package com.solvd.lawOffice.dao.jbdcMySqlImpl;
 
 import com.solvd.lawOffice.binary.location.Country;
 import com.solvd.lawOffice.dao.ICountryDao;
+import com.solvd.lawOffice.utils.exceptions.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -34,7 +35,7 @@ public class CountryDao extends AbstractDao implements ICountryDao {
             return coun;
         } catch (SQLException e) {
             LOGGER.info("ERROR: Could not return country with id: " + id, e);
-            throw new RuntimeException();
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr, rs);
@@ -53,7 +54,7 @@ public class CountryDao extends AbstractDao implements ICountryDao {
             LOGGER.info("Country saved successfully");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not save the country", e);
-            throw new RuntimeException();
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
@@ -72,7 +73,7 @@ public class CountryDao extends AbstractDao implements ICountryDao {
             LOGGER.info("Country updated successfully.");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not update the country.", e);
-            throw new RuntimeException();
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
@@ -90,7 +91,7 @@ public class CountryDao extends AbstractDao implements ICountryDao {
             LOGGER.info("Country deleted successfully");
         } catch (SQLException e) {
             LOGGER.error("ERROR: Could not delete the Country", e);
-            throw new RuntimeException(e);
+            throw new DaoException(e);
         } finally {
             returnConnection(con);
             closeResources(pr);
